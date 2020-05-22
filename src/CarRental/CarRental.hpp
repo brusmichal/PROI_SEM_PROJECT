@@ -26,7 +26,7 @@ public:
     void ReturnCustomerList(/*enum: all, withdebt */);
     void Rent(Vehicle& vehicle);
     void Payment(Vehicle& vehicle, Customer& customer);
-    CarRental& Search(T& value);
+    CarRental& Find(T& value);
     void Add(T instance);
     void Delete(T instance);
 
