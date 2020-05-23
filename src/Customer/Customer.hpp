@@ -1,8 +1,8 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
-#include "../CarRental/CarRental.hpp"
+#include "../VehicleRental/VehicleRental.hpp"
 
-class Customer : protected CarRental{
+class Customer : protected VehicleRental{
 
 };
 #endif

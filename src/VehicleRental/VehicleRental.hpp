@@ -1,23 +1,25 @@
-#ifndef CAR_RENTAL_H
-#define CAR_RENTAL_H
+#ifndef VEHICLE_RENTAL_H
+#define VEHICLE_RENTAL_H
 #include <vector>
+#include<iterator>
+#include <algorithm>
 #include "../Vehicle/Vehicle.hpp"
 #include "../Customer/Customer.hpp"
 
 
 template <typename T>
 
-class CarRental{
+class VehicleRental{
     std::vector <Vehicle> VehicleList;
     std::vector <Customer> CustomerList;
 
 public:
-    CarRental(){
+    VehicleRental(){
         VehicleList = new std::vector <Vehicle>();
         CustomerList = new std::vector <Customer>();
         
     }
-    ~CarRental(){
+    ~VehicleRental(){
         delete VehicleList;
         delete CustomerList;
     };
@@ -26,9 +28,9 @@ public:
     void ReturnCustomerList(/*enum: all, withdebt */);
     void Rent(Vehicle& vehicle);
     void Payment(Vehicle& vehicle, Customer& customer);
-    CarRental& Find(T& value);
-    void Add(T instance);
-    void Delete(T instance);
+    typename std::vector<T>::iterator Find(const T& value);
+    void Add(T& instance);
+    void Delete(T& instance);
 
 
 

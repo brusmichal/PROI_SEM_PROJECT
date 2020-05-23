@@ -1,8 +1,8 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
-#include "../CarRental/CarRental.hpp"
+#include "../VehicleRental/VehicleRental.hpp"
 
-class Vehicle : protected CarRental{
+class Vehicle : protected VehicleRental{
 
 };
 #endif
