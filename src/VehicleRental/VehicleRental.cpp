@@ -21,7 +21,7 @@ void VehicleRental <Vehicle> :: Delete(Vehicle& vehicle){
 };
 
 void VehicleRental <Customer> :: Delete(Customer& customer){
-    VehicleList.erase(Find(customer));
+    CustomerList.erase(Find(customer));
 };
 
 
