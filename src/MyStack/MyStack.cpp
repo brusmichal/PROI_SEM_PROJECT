@@ -36,3 +36,8 @@ template <typename T>
          std::cout << i+1 << ") " << T << std::endl;
      ~MyStack();
 };
+
+template <typename T>
+bool MyStack<T> :: IsEmpty(){
+    return top == -1 ? true : false;
+};

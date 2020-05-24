@@ -12,5 +12,8 @@ public:
     void push(T instance);
     void pop();
     void read();
+
+    //metody pomocnicze
+    bool IsEmpty();
 };
 #endif

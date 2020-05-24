@@ -2,7 +2,7 @@
 #define CUSTOMER_H
 #include "../VehicleRental/VehicleRental.hpp"
 
-class Customer : protected VehicleRental{
+class Customer : protected VehicleRental <Customer>{
 
 };
 #endif

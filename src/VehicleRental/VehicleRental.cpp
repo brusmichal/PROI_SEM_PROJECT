@@ -12,6 +12,8 @@ void VehicleRental <Customer> :: Add(Customer& customer){
     CustomerList.push_back(customer);
 };
 
+//-----------------------------------------------------------
+
 template <typename T>
 
 void VehicleRental <T> :: Delete(T& instance){};
@@ -24,7 +26,7 @@ void VehicleRental <Customer> :: Delete(Customer& customer){
     CustomerList.erase(Find(customer));
 };
 
-
+//------------------------------------------------------------
 
 template <typename T>
 
@@ -57,3 +59,5 @@ std::vector<Customer>::iterator VehicleRental <Customer> :: Find(const Customer&
         return position;
     }  
 };
+
+//---------------------------------------------------------------

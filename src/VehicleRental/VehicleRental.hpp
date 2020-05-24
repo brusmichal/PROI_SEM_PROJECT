@@ -24,18 +24,25 @@ public:
         delete CustomerList;
     };
 
-    void ReturnVehicleList(/*enum:all, free, taken"*/);
-    void ReturnCustomerList(/*enum: all, withdebt */);
+    void Menu();
+    void LoadData();
+    void ExportData();
+
     void Rent(Vehicle& vehicle);
     void Payment(Vehicle& vehicle, Customer& customer);
+
     typename std::vector<T>::iterator Find(const T& value);
     void Add(T& instance);
     void Delete(T& instance);
 
+    // void ShowVehicleList(/*enum:all, free, taken"*/);
+    // void ShowCustomerList(/*enum: all, withdebt */);
 
 
 
-friend void Show();
+
+
+friend void ShowInfo(T& instance);
     
 };
 #endif
