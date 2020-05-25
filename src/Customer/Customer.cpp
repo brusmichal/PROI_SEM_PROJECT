@@ -17,12 +17,12 @@ void Customer::rent_vehicle(const Vehicle car)
 	if (Customer::rented_vehicle.name == "")
 	{
 		Customer::rented_vehicle = car;
-		Customer::debt += car.price;
+		Customer::debt += car.costOfRenting;
 		Customer::history.push_back(Customer::rented_vehicle);
 	}
 	else
 	{
-		std::string error = "Pojazd ju\276 wypo\276yczony";
+		std::string error = "Pojazd już wypożyczony";
 		throw error;
 	}
 }
@@ -40,7 +40,7 @@ void Customer::pay(const int price)
 
 void Customer::show_history()
 {
-	std::cout << "Historia wypo\276ycze\344:" << std::endl;
+	std::cout << "Historia wypożyczeń:" << std::endl;
 	//for (int i = 0; i < Customer::history.size(); ++i)
 		//cout << Customer::history[i]<<endl;
 }

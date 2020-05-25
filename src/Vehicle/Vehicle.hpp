@@ -21,5 +21,7 @@ class Vehicle : protected VehicleRental <Vehicle> {
 	void Return();
 	void ReduceCondition();
 	void Repair();
+
+	friend class Customer;
 };
 #endif

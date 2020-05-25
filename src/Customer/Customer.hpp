@@ -25,6 +25,6 @@ class Customer : protected VehicleRental <Customer>{
 
 	friend
 		std::ostream& operator<< (std::ostream& os, Customer& cust); //operator wyswietlenia osoby
-
+    friend class Vehicle;
 };
 #endif
