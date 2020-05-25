@@ -28,7 +28,7 @@ public:
     void LoadData();
     void ExportData();
 
-    void Rent(Vehicle& vehicle);
+    void Rent(Vehicle& vehicle, Customer& Customer);
     void Payment(Vehicle& vehicle, Customer& customer);
 
     typename std::vector<T>::iterator Find(const T& value);
