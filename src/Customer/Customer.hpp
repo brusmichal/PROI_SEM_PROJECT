@@ -9,16 +9,16 @@
 
 class Customer : protected VehicleRental <Customer>{
 	std::string name;
-		std::string surname;
-		long long pesel;
-		char driving_license_type;
-		Vehicle borrowed;
-		std::vector<Vehicle> history;
-		int arrear=0;
+	std::string surname;
+	long long pesel;
+	char driving_license_type;
+	Vehicle rented_vehicle;
+	std::vector<Vehicle> history;
+	int debt=0;
 	
-	public:
+    public:
 		Customer(const std::string, const std::string, const long long, const char); //Konstruktor
-		void borrow(const Vehicle); //funkcja do wypo�yczania pojazdu
+		void rent_vehicle(const Vehicle); //funkcja do wypo�yczania pojazdu
 		void pay(const int); //funkcja op�aty
 		void return_vehicle(); //funkcja do zwracania pojazdu
 		void show_history();

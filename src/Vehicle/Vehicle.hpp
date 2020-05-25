@@ -5,6 +5,7 @@
 
 
 class Vehicle : protected VehicleRental <Vehicle> {
+	std::string name;
 	int dateProduction;
 	std::string numberplate;
 	int costOfRenting;
@@ -12,7 +13,7 @@ class Vehicle : protected VehicleRental <Vehicle> {
 	bool isRent;
 	bool isWork;
 
-	Vehicle(int, std::string, int);
+	Vehicle(std::string, int, std::string, int);
 	~Vehicle();
 
 	bool canRent();

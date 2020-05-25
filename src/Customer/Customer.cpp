@@ -11,14 +11,14 @@ Customer::Customer(const std::string str1, const std::string str2, const long lo
 	Customer::driving_license_type = type;
 }
 
-void Customer::borrow(const Vehicle car)
+void Customer::rent_vehicle(const Vehicle car)
 {
 
-	if (Customer::borrowed.name == "")
+	if (Customer::rented_vehicle.name == "")
 	{
-		Customer::borrowed = car;
-		Customer::arrear += car.price;
-		Customer::history.push_back(Customer::borrowed);
+		Customer::rented_vehicle = car;
+		Customer::debt += car.price;
+		Customer::history.push_back(Customer::rented_vehicle);
 	}
 	else
 	{
@@ -30,23 +30,23 @@ void Customer::borrow(const Vehicle car)
 void Customer::return_vehicle()
 {
 
-	Customer::borrowed = {};
+	Customer::rented_vehicle = {};
 }
 
 void Customer::pay(const int price)
 {
-	Customer::arrear -= price;
+	Customer::debt -= price;
 }
 
 void Customer::show_history()
 {
-	cout << "Historia wypo\276ycze\344:" << endl;
+	std::cout << "Historia wypo\276ycze\344:" << std::endl;
 	//for (int i = 0; i < Customer::history.size(); ++i)
 		//cout << Customer::history[i]<<endl;
 }
 
-std::ostream& operator<< (ostream& os, Customer& klient)
+std::ostream& operator<< (std::ostream& os, Customer& klient)
 {
 	return os << klient.name + " " + klient.surname + " Pesel: " + std::to_string(klient.pesel)
-		+ " Zaleglosc: " + std::to_string(klient.arrear)<<" Wypo\276yczone: "<<klient.borrowed.name<<endl;
+		+ " Zaleglosc: " + std::to_string(klient.debt)<<" Wypo\276yczone: "<<klient.borrowed.name<<endl;
 }
