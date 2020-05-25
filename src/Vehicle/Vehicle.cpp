@@ -1,6 +1,6 @@
-#include "Vehicle.h"
+#include "../Vehicle/Vehicle.hpp"
 
-Vehicle::Vehicle(int d, string n, int c) {
+Vehicle::Vehicle(int d, std::string n, int c) {
 	dateProduction = d;
 	numberplate = n;
 	costOfRenting = c;

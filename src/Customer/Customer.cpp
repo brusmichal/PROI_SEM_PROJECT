@@ -3,7 +3,7 @@
 #include <string>
 #include "../Customer/Customer.hpp"
 
-Customer::Customer(const string str1, const string str2, const long long pes, const char type)
+Customer::Customer(const std::string str1, const std::string str2, const long long pes, const char type)
 {
 	Customer::name = str1;
 	Customer::surname = str2;
