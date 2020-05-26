@@ -1,52 +1,60 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
-#include "Customer.h"
+#include "../Customer/Customer.hpp"
 
-Customer::Customer(const string str1, const string str2, const long long pes, const char type)
+Customer::Customer(const std::string str1, const std::string str2, const long long pes, const char type)
 {
-	Customer::name = str1;
-	Customer::surname = str2;
-	Customer::pesel = pes;
-	Customer::driving_license_type = type;
+	name = str1;
+	surname = str2;
+	pesel = pes;
+	driving_license_type = type;
+	rented_vehicle = Vehicle("", 0, "", 0);
 }
 
-void Customer::borrow(const Vehicle car)
+void Customer::rent_vehicle(const Vehicle car)
 {
 
-	if (Customer::borrowed.name == "")
+	if (Customer::rented_vehicle.name == "")
 	{
-		Customer::borrowed = car;
-		Customer::arrear += car.price;
-		Customer::history.push_back(Customer::borrowed);
+		rented_vehicle = car;
+		debt += car.costOfRenting;
+		history.push_back(Customer::rented_vehicle);
 	}
 	else
 	{
-		std::string error = "Pojazd ju\276 wypo\276yczony";
+		std::string error = "Pojazd już wypo\276yczony";
 		throw error;
 	}
 }
 
 void Customer::return_vehicle()
 {
-
-	Customer::borrowed = {};
+	if (rented_vehicle.name != "")  //???
+		rented_vehicle = Vehicle("", 0, "", 0);
+	else
+		throw "Osoba nie posiada wypo\276yczonego pojazdu";
 }
 
 void Customer::pay(const int price)
 {
-	Customer::arrear -= price;
+	Customer::debt -= price;
 }
 
 void Customer::show_history()
 {
-	cout << "Historia wypo\276ycze\344:" << endl;
+	std::cout << "Historia wypo\276ycze\344 :" << std::endl;
 	//for (int i = 0; i < Customer::history.size(); ++i)
 		//cout << Customer::history[i]<<endl;
 }
 
-std::ostream& operator<< (ostream& os, Customer& klient)
+char Customer::show_driving_type()
+{
+	return driving_license_type;
+}
+
+std::ostream& operator<< (std::ostream& os, Customer& klient)
 {
 	return os << klient.name + " " + klient.surname + " Pesel: " + std::to_string(klient.pesel)
-		+ " Zaleglosc: " + std::to_string(klient.arrear)<<" Wypo\276yczone: "<<klient.borrowed.name<<endl;
+		+ " Zaleglosc: " + std::to_string(klient.debt)<<" Wypo\276yczone: "<<klient.rented_vehicle<<endl; //???
 }
