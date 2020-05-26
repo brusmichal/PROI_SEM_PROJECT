@@ -9,17 +9,17 @@
 
 template <typename T>
 
-class VehicleRental{
+class VehicleRental {
     std::vector <Vehicle> VehicleList;
     std::vector <Customer> CustomerList;
 
 public:
-    VehicleRental(){
+    VehicleRental() {
         VehicleList = new std::vector <Vehicle>();
         CustomerList = new std::vector <Customer>();
-        
+
     }
-    ~VehicleRental(){
+    ~VehicleRental() {
         delete VehicleList;
         delete CustomerList;
     };
@@ -28,7 +28,7 @@ public:
     void LoadData();
     void ExportData();
 
-    void Rent(Vehicle& vehicle);
+    void Rent(Vehicle& vehicle, Customer& Customer);
     void Payment(Vehicle& vehicle, Customer& customer);
 
     typename std::vector<T>::iterator Find(const T& value);
@@ -42,7 +42,7 @@ public:
 
 
 
-friend void ShowInfo(T& instance);
-    
+    friend void ShowInfo(T& instance);
+
 };
 #endif

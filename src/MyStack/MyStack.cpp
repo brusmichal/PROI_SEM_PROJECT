@@ -2,27 +2,27 @@
 
 template <typename T>
 
-MyStack <T>::MyStack(){
-     my_stack = new T[];
-     top = -1;
+MyStack <T>::MyStack() {
+    my_stack = new T[];
+    top = -1;
 };
 
 template <typename T>
 
-MyStack <T>::~MyStack(){
-     delete[] my_stack;
+MyStack <T>::~MyStack() {
+    delete[] my_stack;
 };
 
 template <typename T>
 
-void MyStack<T>::push(T instance){
+void MyStack<T>::push(T instance) {
     my_stack[++top] = instance;
 };
 
 template <typename T>
 
-void MyStack<T>::pop(){
-    if(IsEmpty())
+void MyStack<T>::pop() {
+    if (IsEmpty())
         throw "Cannot pop nonexistent element from the stack";
 
     delete my_stack[top--];
@@ -31,13 +31,13 @@ void MyStack<T>::pop(){
 
 template <typename T>
 
- void MyStack<T>::read(){
-     for(int i = top; i > -1; i--)
-         std::cout << i+1 << ") " << T << std::endl;
-     ~MyStack();
+void MyStack<T>::read() {
+    for (int i = top; i > -1; i--)
+        std::cout << i + 1 << ") " << T << std::endl;
+    ~MyStack();
 };
 
 template <typename T>
-bool MyStack<T> :: IsEmpty(){
+bool MyStack<T> ::IsEmpty() {
     return top == -1 ? true : false;
 };

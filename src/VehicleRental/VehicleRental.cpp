@@ -2,13 +2,13 @@
 
 template <typename T>
 
-void VehicleRental <T> :: Add(T& instance){};
+void VehicleRental <T> ::Add(T& instance) {};
 
-void VehicleRental <Vehicle> :: Add(Vehicle& vehicle){
+void VehicleRental <Vehicle> ::Add(Vehicle& vehicle) {
     VehicleList.push_back(vehicle);
 };
 
-void VehicleRental <Customer> :: Add(Customer& customer){
+void VehicleRental <Customer> ::Add(Customer& customer) {
     CustomerList.push_back(customer);
 };
 
@@ -16,13 +16,13 @@ void VehicleRental <Customer> :: Add(Customer& customer){
 
 template <typename T>
 
-void VehicleRental <T> :: Delete(T& instance){};
+void VehicleRental <T> ::Delete(T& instance) {};
 
-void VehicleRental <Vehicle> :: Delete(Vehicle& vehicle){
+void VehicleRental <Vehicle> ::Delete(Vehicle& vehicle) {
     VehicleList.erase(Find(vehicle));
 };
 
-void VehicleRental <Customer> :: Delete(Customer& customer){
+void VehicleRental <Customer> ::Delete(Customer& customer) {
     CustomerList.erase(Find(customer));
 };
 
@@ -30,9 +30,9 @@ void VehicleRental <Customer> :: Delete(Customer& customer){
 
 template <typename T>
 
-typename std::vector<T>::iterator VehicleRental <T> :: Find(const T& value){};
+typename std::vector<T>::iterator VehicleRental <T> ::Find(const T& value) {};
 
-std::vector<Vehicle>::iterator VehicleRental <Vehicle> :: Find(const Vehicle& vehicle){
+std::vector<Vehicle>::iterator VehicleRental <Vehicle> ::Find(const Vehicle& vehicle) {
 
     std::vector<Vehicle>::iterator position;
     auto it = std::find(VehicleList.begin(), VehicleList.end(), vehicle);
@@ -46,7 +46,7 @@ std::vector<Vehicle>::iterator VehicleRental <Vehicle> :: Find(const Vehicle& ve
     }
 };
 
-std::vector<Customer>::iterator VehicleRental <Customer> :: Find(const Customer& customer){
+std::vector<Customer>::iterator VehicleRental <Customer> ::Find(const Customer& customer) {
 
     std::vector<Customer>::iterator position;
     auto it = std::find(CustomerList.begin(), CustomerList.end(), customer);
@@ -57,7 +57,7 @@ std::vector<Customer>::iterator VehicleRental <Customer> :: Find(const Customer&
     {
         position = it;
         return position;
-    }  
+    }
 };
 
 //---------------------------------------------------------------

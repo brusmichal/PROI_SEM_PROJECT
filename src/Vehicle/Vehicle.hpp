@@ -1,18 +1,22 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
+#include <iostream>
 #include "../VehicleRental/VehicleRental.hpp"
 #include <string>
 
 
 class Vehicle : protected VehicleRental <Vehicle> {
+
+	std::string name;
 	int dateProduction;
-	string numberplate;
+	std::string numberplate;
 	int costOfRenting;
 	int condition;
 	bool isRent;
 	bool isWork;
 
-	Vehicle(int, string, int);
+
+	Vehicle(std::string, int, std::string, int);
 	~Vehicle();
 
 	bool canRent();
@@ -20,5 +24,7 @@ class Vehicle : protected VehicleRental <Vehicle> {
 	void Return();
 	void ReduceCondition();
 	void Repair();
+
+	friend class Customer;
 };
 #endif
