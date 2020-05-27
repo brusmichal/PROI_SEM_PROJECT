@@ -38,24 +38,20 @@ void Vehicle::Repair() {
 	}
 }
 
-Car::Car(std::string nam, int d, std::string n, int c, int s) {
-	name = nam;
-	dateProduction = d;
-	numberplate = n;
-	costOfRenting = c;
-	numberOfSeats = s;
-	condition = 100;
-	isRent = false;
-	isWork = true;
+std::ostream& operator<< (std::ostream& os, Vehicle& vehi)
+{
+	std::string status;
+	if (vehi.isRent) status = " ";
+	else status = " nie ";
+	return os << "Nazwa pojazdu " + vehi.name + " Numer rejestracyjny " + vehi.numberplate
+		+ " Data produkcji " + std::to_string(vehi.dateProduction) + " Koszt wypozyczenia "
+		+ std::to_string(vehi.costOfRenting) + " Pojazd sprawny w " + std::to_string(vehi.condition) + "% Pojazd" + status + "jest wypozyczony";
 }
 
-Truck::Truck(std::string nam, int d, std::string n, int c, int ca) {
-	name = nam;
-	dateProduction = d;
-	numberplate = n;
-	costOfRenting = c;
+Car::Car(std::string nam, int d, std::string n, int c, int s) :Vehicle(nam, d, n, c) {
+	numberOfSeats = s;
+}
+
+Truck::Truck(std::string nam, int d, std::string n, int c, int ca) : Vehicle(nam, d, n, c) {
 	capacity = ca;
-	condition = 100;
-	isRent = false;
-	isWork = true;
 }

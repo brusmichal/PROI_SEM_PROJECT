@@ -15,9 +15,9 @@ protected:
 	bool isRent;
 	bool isWork;
 
-
+public:
 	Vehicle(std::string, int, std::string, int);
-	~Vehicle();
+	//	~Vehicle();
 
 	bool canRent();
 	void Rent();
@@ -25,20 +25,23 @@ protected:
 	void ReduceCondition();
 	void Repair();
 
-	friend class Customer;
+	friend
+		std::ostream& operator<< (std::ostream& os, Vehicle& vehi);
+
+	//	friend class Customer;
 };
 
 class Car :protected Vehicle {
 	int numberOfSeats;
 
 	Car(std::string, int, std::string, int, int);
-	~Car();
+	//	~Car();
 };
 
 class Truck :protected Vehicle {
 	int capacity;
 
 	Truck(std::string, int, std::string, int, int);
-	~Truck();
+	//	~Truck();
 };
 #endif
