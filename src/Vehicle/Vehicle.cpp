@@ -37,3 +37,25 @@ void Vehicle::Repair() {
 		isWork = true;
 	}
 }
+
+Car::Car(std::string nam, int d, std::string n, int c, int s) {
+	name = nam;
+	dateProduction = d;
+	numberplate = n;
+	costOfRenting = c;
+	numberOfSeats = s;
+	condition = 100;
+	isRent = false;
+	isWork = true;
+}
+
+Truck::Truck(std::string nam, int d, std::string n, int c, int ca) {
+	name = nam;
+	dateProduction = d;
+	numberplate = n;
+	costOfRenting = c;
+	capacity = ca;
+	condition = 100;
+	isRent = false;
+	isWork = true;
+}

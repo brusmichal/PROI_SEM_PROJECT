@@ -6,7 +6,7 @@
 
 
 class Vehicle : protected VehicleRental <Vehicle> {
-
+protected:
 	std::string name;
 	int dateProduction;
 	std::string numberplate;
@@ -26,5 +26,19 @@ class Vehicle : protected VehicleRental <Vehicle> {
 	void Repair();
 
 	friend class Customer;
+};
+
+class Car :protected Vehicle {
+	int numberOfSeats;
+
+	Car(std::string, int, std::string, int, int);
+	~Car();
+};
+
+class Truck :protected Vehicle {
+	int capacity;
+
+	Truck(std::string, int, std::string, int, int);
+	~Truck();
 };
 #endif
