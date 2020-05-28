@@ -4,7 +4,7 @@
 #include <string>
 
 
-class Vehicle : protected VehicleRental <Vehicle> {
+class Vehicle : protected VehicleRental{
 	std::string name;
 	int dateProduction;
 	std::string numberplate;

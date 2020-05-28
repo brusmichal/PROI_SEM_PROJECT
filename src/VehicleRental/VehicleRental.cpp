@@ -2,13 +2,15 @@
 
 template <typename T>
 
-void VehicleRental <T> :: Add(T& instance){};
+void VehicleRental::Add(T& instance){};
 
-void VehicleRental <Vehicle> :: Add(Vehicle& vehicle){
+template <>
+void VehicleRental::Add <Vehicle> (Vehicle& vehicle){
     VehicleList.push_back(vehicle);
 };
 
-void VehicleRental <Customer> :: Add(Customer& customer){
+template <>
+void VehicleRental :: Add <Customer> (Customer& customer){
     CustomerList.push_back(customer);
 };
 
@@ -16,13 +18,14 @@ void VehicleRental <Customer> :: Add(Customer& customer){
 
 template <typename T>
 
-void VehicleRental <T> :: Delete(T& instance){};
+void VehicleRental :: Delete(T& instance){};
 
-void VehicleRental <Vehicle> :: Delete(Vehicle& vehicle){
+template <>
+void VehicleRental :: Delete <Vehicle>(Vehicle& vehicle){
     VehicleList.erase(Find(vehicle));
 };
-
-void VehicleRental <Customer> :: Delete(Customer& customer){
+template <>
+void VehicleRental :: Delete <Customer>(Customer& customer){
     CustomerList.erase(Find(customer));
 };
 
@@ -30,9 +33,10 @@ void VehicleRental <Customer> :: Delete(Customer& customer){
 
 template <typename T>
 
-typename std::vector<T>::iterator VehicleRental <T> :: Find(const T& value){};
+typename std::vector<T>::iterator VehicleRental  :: Find <T>(const T& value){};
 
-std::vector<Vehicle>::iterator VehicleRental <Vehicle> :: Find(const Vehicle& vehicle){
+template<>
+std::vector<Vehicle>::iterator VehicleRental :: Find <Vehicle>(const Vehicle& vehicle){
 
     std::vector<Vehicle>::iterator position;
     auto it = std::find(VehicleList.begin(), VehicleList.end(), vehicle);
@@ -46,7 +50,8 @@ std::vector<Vehicle>::iterator VehicleRental <Vehicle> :: Find(const Vehicle& ve
     }
 };
 
-std::vector<Customer>::iterator VehicleRental <Customer> :: Find(const Customer& customer){
+template<>
+std::vector<Customer>::iterator VehicleRental :: Find <Customer>(const Customer& customer){
 
     std::vector<Customer>::iterator position;
     auto it = std::find(CustomerList.begin(), CustomerList.end(), customer);

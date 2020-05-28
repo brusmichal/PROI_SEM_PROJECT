@@ -7,7 +7,7 @@
 #include "../Customer/Customer.hpp"
 
 
-template <typename T>
+
 
 class VehicleRental{
     std::vector <Vehicle> VehicleList;
@@ -31,8 +31,11 @@ public:
     void Rent(Vehicle& vehicle, Customer& Customer);
     void Payment(Vehicle& vehicle, Customer& customer);
 
+    template <typename T>
     typename std::vector<T>::iterator Find(const T& value);
+    template <typename T>
     void Add(T& instance);
+    template <typename T>
     void Delete(T& instance);
 
     // void ShowVehicleList(/*enum:all, free, taken"*/);
