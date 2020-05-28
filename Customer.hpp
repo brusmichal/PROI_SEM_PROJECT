@@ -17,12 +17,12 @@ class Customer : protected VehicleRental <Customer>{
 	int debt=0;
 	
     public:
-		Customer(const std::string, const std::string, const long long, const char); //Konstruktor
-		void rent_vehicle(const Vehicle); //funkcja do wypo�yczania pojazdu
-		void pay(const int); //funkcja op�aty
+		Customer(const std::string, const std::string, const long long, const char, Vehicle); //Konstruktor
+		void rent_vehicle(const Vehicle); //funkcja do wypozyczania pojazdu
+		void pay(const int); //funkcja oplaty
 		void return_vehicle(); //funkcja do zwracania pojazdu
-		void show_history();
-		char show_driving_type();
+		void show_history(); //pokazuje historie 
+		char show_driving_type(); //zwraca typ prawojazd
 
 	friend
 		std::ostream& operator<< (std::ostream& os, Customer& cust); //operator wyswietlenia osoby
