@@ -10,6 +10,28 @@ Vehicle::Vehicle(std::string nam, int d, std::string n, int c) {
 	isWork = true;
 }
 
+Vehicle::Vehicle(std::string nam, int d, std::string n, int cos, int con, bool isR, bool isW) {
+	name = nam;
+	dateProduction = d;
+	numberplate = n;
+	costOfRenting = cos;
+	condition = con;
+	isRent = isR;
+	isWork = isW;
+}
+
+Vehicle::Vehicle() {
+	std::string nazwa = "";
+	std::string reje = "BS00000";
+	name = nazwa;
+	dateProduction = 0;
+	numberplate = reje;
+	costOfRenting = 0;
+	condition = 100;
+	isRent = false;
+	isWork = true;
+}
+
 bool Vehicle::canRent() {
 	if (isWork && !(isRent)) return true;
 	return false;

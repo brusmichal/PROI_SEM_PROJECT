@@ -4,8 +4,7 @@
 #include "../VehicleRental/VehicleRental.hpp"
 #include <string>
 
-
-class Vehicle : protected VehicleRental <Vehicle> {
+class Vehicle /*: protected VehicleRental <Vehicle>*/ {
 protected:
 	std::string name;
 	int dateProduction;
@@ -17,8 +16,10 @@ protected:
 
 public:
 	Vehicle(std::string, int, std::string, int);
+	Vehicle(std::string, int, std::string, int, int, bool, bool);
+	Vehicle();
 	//	~Vehicle();
-
+protected:
 	bool canRent();
 	void Rent();
 	void Return();
@@ -28,7 +29,8 @@ public:
 	friend
 		std::ostream& operator<< (std::ostream& os, Vehicle& vehi);
 
-	//	friend class Customer;
+	friend class Customer;
+	friend class VehicleRental;
 };
 
 class Car :protected Vehicle {
