@@ -13,6 +13,8 @@ class VehicleRental {
 public:
 
     void Menu();
+    void menu_customer(int);
+    void menu_vehicle(int);
     void LoadData();
     void ExportData();
 
