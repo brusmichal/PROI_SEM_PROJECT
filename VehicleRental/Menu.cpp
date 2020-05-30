@@ -29,17 +29,98 @@ Customer enter_customer()
     Customer ktos(name, drugi, jeden, dwa);
     return ktos;
 }
-
-void VehicleRental::Menu()
+/*------------------------------------------------------------------------*/
+void VehicleRental::menu_customer(int numer)
 {
+    long long pesel;
+    int ile, wybor;
     using std::cout;
     using std::cin;
     using std::endl;
     int x = 8;
     while (x > 0 && x < 9) {
+        int numer = -1;
+        //system("cls");
+        cout << CustomerList[numer] << endl;
+        cout << "Co chcesz zrobic: \n1.Wypozycz pojazd  \n2.Oplac \n3.Zwroc pojazd\n4.Wroc\n";
+        cout << "Wybor: ";
+        std::cin >> x;
         system("cls");
-        cout << "Witaj co chcesz zrobic: \n1.Dodaj pojazd  \n2.Dodaj klienta\n";
-        cout << "Wybor:" << std::endl;
+        switch (x)
+        {
+        case 1:
+            cout << "Dostepne samochody" << endl;
+            for (int i = 0; i < VehicleList.size(); ++i)
+                if (!VehicleList[i].isRent) cout << i << " " << VehicleList[i] << endl;
+            cout << "Ktory pojazd wypozyczyc? "; cin >> wybor;
+            Rent(VehicleList[wybor], CustomerList[numer]);
+        case 2:
+            cout << "Podaj kwote "; cin >> ile;
+            CustomerList[numer].pay(ile);
+        case 3:
+            try
+            {
+                CustomerList[numer].return_vehicle();
+                //brak zerowania w vehicle
+            }
+            catch (std::string msg)
+            {
+                cout << msg;
+            }
+        case 4:
+            break;
+
+        }
+
+    }
+}
+/*----------------------------------------------------------------------------*/
+void VehicleRental::menu_vehicle(int numer)
+{
+    int ile, wybor;
+    using std::cout;
+    using std::cin;
+    using std::endl;
+    int x = 8;
+    while (x > 0 && x < 9) {
+        int numer = -1;
+        //system("cls");
+        cout << VehicleList[numer] << endl;
+        cout << "Co chcesz zrobic: \n1.Wypozycz pojazd  \n2.Napraw \n3.Wroc\n";
+        cout << "Wybor: ";
+        std::cin >> x;
+        system("cls");
+        switch (x)
+        {
+        case 1:
+            cout << "Osoby mogace wypozyczyc" << endl;
+            for (int i = 0; i < CustomerList.size(); ++i)
+                if (!CustomerList[i].rented_vehicle.isRent) cout << i << " " << CustomerList[i] << endl;
+            cout << "Kto chce wypozyczyc wypozyczyc? "; cin >> wybor;
+            Rent(VehicleList[numer], CustomerList[wybor]);
+        case 2:
+            VehicleList[numer].Repair();
+        case 3:
+            break;
+
+        }
+
+    }
+}
+/*-------------------------------------------------------------------------------*/
+void VehicleRental::Menu()
+{
+    long long pesel;
+    std::string nr;
+    using std::cout;
+    using std::cin;
+    using std::endl;
+    int x = 8;
+    while (x != 0) {
+        int numer = -1;
+        //system("cls");
+        cout << "Witaj co chcesz zrobic: \n1.Dodaj pojazd  \n2.Dodaj klienta\n3.Panel klienta\n4.Panel samochodu\n0.wyjdz\n";
+        cout << "Wybor: ";
         std::cin >> x;
         system("cls");
         switch (x)
@@ -49,7 +130,28 @@ void VehicleRental::Menu()
             cout << "Dodano pojazd";
         case 2:
             Add(enter_customer());
+        case 3:
+            cout << "Podaj pesel "; cin >> pesel;
+            for (int i = 0; i < CustomerList.size(); ++i)
+                if (CustomerList[i].pesel == pesel)
+                {
+                    numer = i;
+                    break;
+                }
+            if (numer >= 0) menu_customer(numer);
+            else cout << "Brak klienta o danym peselu" << endl;
+        case 4:
+            cout << "Podaj nr rejestracyjny "; cin >> nr;
+            for (int i = 0; i < VehicleList.size(); ++i)
+                if (VehicleList[i].numberplate == nr)
+                {
+                    numer = i;
+                    break;
+                }
+            if (numer >= 0) menu_vehicle(numer);
+            else cout << "Brak pojazdu o danym nr rejestracyjnym" << endl;
         case 0:
+            ExportData();
             break;
         }
 
