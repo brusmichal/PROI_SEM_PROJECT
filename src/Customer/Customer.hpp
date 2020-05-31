@@ -17,9 +17,9 @@ class Customer : protected VehicleRental{
 	int debt=0;
 	
     public:
-		Customer(const std::string, const std::string, const long long, const char); //Konstruktor
-		void rent_vehicle(const Vehicle); //funkcja do wypo�yczania pojazdu
-		void pay(const int); //funkcja op�aty
+		Customer(const std::string, const std::string, const long long, const char, Vehicle, int); //Konstruktor
+		void rent_vehicle(const Vehicle); //funkcja do wypozyczania pojazdu
+		void pay(const int); //funkcja oplaty
 		void return_vehicle(); //funkcja do zwracania pojazdu
 		void show_history();
 
