@@ -69,7 +69,8 @@ std::vector<Customer>::iterator VehicleRental::Find (const Customer& customer) {
 }
 */
 //---------------------------------------------------------------    
-void VehicleRental::Rent(Vehicle& vehicle, Customer& Customer)
+
+void VehicleRental::Rent(Vehicle& vehicle, Customer& Customer) //cos nie tak
 {
     try
     {
@@ -80,6 +81,26 @@ void VehicleRental::Rent(Vehicle& vehicle, Customer& Customer)
     catch (std::string exnum)
     {
         std::cout << "Wyj¹tek" << exnum << std::endl;
+    }
+}
+
+void VehicleRental::Return(Customer& customer) //cos nie tak
+{
+    try
+    {
+        for (int i = 0; i < VehicleList.size(); i++)
+        {
+            if (VehicleList[i].numberplate == customer.rented_vehicle.numberplate)
+            {
+                VehicleList[i].Return();
+                break;
+            }
+        }
+        customer.return_vehicle();
+    }
+    catch (std::string msg)
+    {
+        std::cout << msg;
     }
 }
 

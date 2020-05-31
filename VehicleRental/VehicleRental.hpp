@@ -20,6 +20,7 @@ public:
 
     void Rent(Vehicle& vehicle, Customer& Customer);
     void Payment(Vehicle& vehicle, Customer& customer);
+    void Return(Customer& customer);
 
     //template <typename T>
     //std::vector<T>::iterator Find(const T& value);
