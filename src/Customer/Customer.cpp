@@ -51,5 +51,5 @@ void Customer::show_history()
 std::ostream& operator<< (std::ostream& os, Customer& klient)
 {
 	return os << klient.name + " " + klient.surname + " Pesel: " + std::to_string(klient.pesel)
-		+ " Zaleglosc: " + std::to_string(klient.debt)<<" Wypo\276yczone: "<<klient.borrowed.name<<endl;
+		+ " Zaleglosc: " + std::to_string(klient.debt)<<" Wypo\276yczone: "<<klient.borrowed.name<<std::endl;
 }
