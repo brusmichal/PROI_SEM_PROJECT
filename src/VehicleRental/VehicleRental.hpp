@@ -1,13 +1,15 @@
 #ifndef VEHICLE_RENTAL_H
 #define VEHICLE_RENTAL_H
 #include <vector>
-#include<iterator>
+#include <iterator>
 #include <algorithm>
 #include <fstream>
+#include <iostream>
 #include "../Vehicle/Vehicle.hpp"
 #include "../Customer/Customer.hpp"
 
-
+std::ifstream in;
+std::ofstream out;
 
 
 class VehicleRental{
