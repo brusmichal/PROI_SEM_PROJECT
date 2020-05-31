@@ -3,13 +3,16 @@
 #include <string>
 #include "../Customer/Customer.hpp"
 
-Customer::Customer(const std::string str1, const std::string str2, const long long pes, const char type)
+Customer::Customer(const std::string str1, const std::string str2, const long long pes, const char type, Vehicle car= Vehicle("", 0, "BS00000", 0), int deb=0)
 {
-	Customer::name = str1;
-	Customer::surname = str2;
-	Customer::pesel = pes;
-	Customer::driving_license_type = type;
+	name = str1;
+	surname = str2;
+	pesel = pes;
+	driving_license_type = type;
+	rented_vehicle = car;
+	debt = deb;
 }
+
 
 void Customer::rent_vehicle(const Vehicle car)
 {
