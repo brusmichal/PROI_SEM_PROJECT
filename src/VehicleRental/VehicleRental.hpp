@@ -28,11 +28,14 @@ public:
     };
 
     void Menu();
+    void menu_customer(int);
+    void menu_vehicle(int);
     void LoadData();
     void ExportData();
 
     void Rent(Vehicle& vehicle, Customer& Customer);
     void Payment(Vehicle& vehicle, Customer& customer);
+    void Return(Customer& customer);
 
     template <typename T>
     typename std::vector<T>::iterator Find(const T& value);

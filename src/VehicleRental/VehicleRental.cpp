@@ -66,7 +66,41 @@ std::vector<Customer>::iterator VehicleRental :: Find <Customer>(const Customer&
 };
 
 //---------------------------------------------------------------
+void VehicleRental::Rent(Vehicle& vehicle, Customer& Customer)
+{
+    try
+    {
+        vehicle.Rent();
+        vehicle.ReduceCondition();
+        Customer.rent_vehicle(vehicle);
+    }
+    catch (std::string exnum)
+    {
+        std::cout << "Wyj¹tek" << exnum << std::endl;
+    }
+}
 
+void VehicleRental::Return(Customer& customer)
+{
+    try
+    {
+        for (int i = 0; i < VehicleList.size(); i++)
+        {
+            if (VehicleList[i].numberplate == customer.rented_vehicle.numberplate)
+            {
+                VehicleList[i].Return();
+                break;
+            }
+        }
+        customer.return_vehicle();
+    }
+    catch (std::string msg)
+    {
+        std::cout << msg;
+    }
+}
+
+//-------------------------------------------------------------
 void VehicleRental::LoadData() {
     std::string a, c, vehi;
     int b, d, e;
