@@ -76,7 +76,18 @@ void VehicleRental::Rent(Vehicle& vehicle, Customer& Customer)
     }
     catch (std::string exnum)
     {
-        std::cout << "Wyj¹tek" << exnum << std::endl;
+        std::cout << "Wyjtek" << exnum << std::endl;
+    }
+}
+
+void VehicleRental::Payment(Customer& customer, int money) {
+    try
+    {
+        customer.pay(money);
+    }
+    catch (std::string exnum)
+    {
+        std::cout << "WyjÄ…tek" << exnum << std::endl;
     }
 }
 
