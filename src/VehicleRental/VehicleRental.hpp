@@ -34,7 +34,7 @@ public:
     void ExportData();
 
     void Rent(Vehicle& vehicle, Customer& Customer);
-    void Payment(Vehicle& vehicle, Customer& customer);
+    void Payment(Customer& customer, int money);
     void Return(Customer& customer);
 
     template <typename T>
