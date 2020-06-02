@@ -1,7 +1,7 @@
 #include <iostream>
 #include "VehicleRental.hpp"
 
-Vehicle enter_vehicle()
+Vehicle& enter_vehicle()
 {
     std::string name, drugi;
     int jeden, dwa;
@@ -15,7 +15,7 @@ Vehicle enter_vehicle()
     return autko;
 }
 
-Customer enter_customer()
+Customer& enter_customer()
 {
     std::string name, drugi;
     long long jeden;

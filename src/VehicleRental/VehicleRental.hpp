@@ -44,13 +44,13 @@ public:
     template <typename T>
     void Delete(T& instance);
 
-    // void ShowVehicleList(/*enum:all, free, taken"*/);
+    // void ShowVehicleList(/*enum:all, free, taken, car, truck"*/);
     // void ShowCustomerList(/*enum: all, withdebt */);
 
 
 
 
-
+template <typename T>
 friend void ShowInfo(T& instance);
     
 };
