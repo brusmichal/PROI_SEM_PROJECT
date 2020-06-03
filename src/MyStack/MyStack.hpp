@@ -9,9 +9,9 @@ public:
     MyStack();
     ~MyStack();
     
-    void push(T instance);
-    void pop();
-    void read();
+    void Push(const T& instance);
+    void Pop();
+    void Read();
 
     //metody pomocnicze
     bool IsEmpty();

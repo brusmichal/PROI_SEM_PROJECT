@@ -15,13 +15,13 @@ MyStack <T>::~MyStack(){
 
 template <typename T>
 
-void MyStack<T>::push(T instance){
+void MyStack<T>::Push(const T& instance){
     my_stack[++top] = instance;
 };
 
 template <typename T>
 
-void MyStack<T>::pop(){
+void MyStack<T>::Pop(){
     if(IsEmpty())
         throw "Cannot pop nonexistent element from the stack";
 
@@ -31,7 +31,7 @@ void MyStack<T>::pop(){
 
 template <typename T>
 
- void MyStack<T>::read(){
+ void MyStack<T>::Read(){
      for(int i = top; i > -1; i--)
          std::cout << i+1 << ") " << T << std::endl;
      ~MyStack();
