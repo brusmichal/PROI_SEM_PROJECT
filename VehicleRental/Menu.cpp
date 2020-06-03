@@ -80,8 +80,8 @@ void VehicleRental::menu_vehicle(int numer)
     int x = 8;
     while (x > 0 && x < 9) {
         system("cls");
-        cout << VehicleList[numer] << endl;
-        cout << "Co chcesz zrobic: \n1.Wypozycz pojazd  \n2.Napraw \n0.Wroc\n";
+        //cout << VehicleList[numer] << endl;
+        cout << "Co chcesz zrobic: \n1.Wypozycz pojazd  \n2.Napraw\n3.Wyswietl samochody osobowe\n4.Wyswietl tiry\n0.Wroc\n";
         cout << "Wybor: ";
         std::cin >> x;
         system("cls");
@@ -91,11 +91,15 @@ void VehicleRental::menu_vehicle(int numer)
             cout << "Osoby mogace wypozyczyc" << endl;
             for (int i = 0; i < CustomerList.size(); ++i)
                 if (!CustomerList[i].rented_vehicle.isRent) cout << i << " " << CustomerList[i] << endl;
-            cout << "Kto chce wypozyczyc wypozyczyc? "; cin >> wybor;
+            cout << "Kto chce wypozyczyc? "; cin >> wybor;
             Rent(VehicleList[numer], CustomerList[wybor]);
             break;
         case 2:
             VehicleList[numer].Repair();
+            break;
+        case 3:
+            break;
+        case 4:
             break;
         case 0:
             break;
@@ -125,9 +129,12 @@ void VehicleRental::Menu()
         case 1:
             Add(enter_vehicle());
             cout << "Dodano pojazd";
+            system("Pause");
             break;
         case 2:
             Add(enter_customer());
+            cout << "Dodano nowego klienta" << endl;
+            system("Pause");
             break;
         case 3:
             cout << "Podaj pesel "; cin >> pesel;
@@ -139,6 +146,7 @@ void VehicleRental::Menu()
                 }
             if (numer >= 0) menu_customer(numer);
             else cout << "Brak klienta o danym peselu" << endl;
+            system("Pause");
             break;
         case 4:
             cout << "Podaj nr rejestracyjny "; cin >> nr;
@@ -151,6 +159,7 @@ void VehicleRental::Menu()
             if (numer >= 0) menu_vehicle(numer);
             else
                 cout << "Brak pojazdu o danym nr rejestracyjnym" << endl;
+            system("Pause");
             break;
         case 0:
             break;
@@ -159,4 +168,3 @@ void VehicleRental::Menu()
     }
     ExportData();
 }
-
