@@ -25,6 +25,8 @@ protected:
 	void Return();
 	void ReduceCondition();
 	void Repair();
+	
+	bool operator==(const Vehicle&);
 
 	friend
 		std::ostream& operator<< (std::ostream& os, Vehicle& vehi);
