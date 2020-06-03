@@ -1,13 +1,14 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 #include <iostream>
-#include <cstdlib>
 #include <cstring>
 #include <vector>
-#include "../VehicleRental/VehicleRental.hpp"
+#include <cstdlib>
+#include <string>
+#include "../Vehicle/Vehicle.hpp"
 
 
-class Customer : protected VehicleRental{
+class Customer /*: protected VehicleRental*/{
 	std::string name;
 	std::string surname;
 	long long pesel;
@@ -19,6 +20,7 @@ class Customer : protected VehicleRental{
     public:
 		Customer(const std::string, const std::string, const long long, const char, Vehicle, int); //Konstruktor
 		Customer(const std::string, const std::string, const long long, const char);
+		Customer();
 		void rent_vehicle(const Vehicle); //funkcja do wypozyczania pojazdu
 		void pay(const int); //funkcja oplaty
 		void return_vehicle(); //funkcja do zwracania pojazdu
