@@ -51,8 +51,8 @@ public:
 
 
 
-//template <typename T>
-//friend void ShowInfo(T& instance);
+template <typename T>
+friend void ShowInfo(T& instance);
 
 };
 #endif

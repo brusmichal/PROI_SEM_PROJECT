@@ -230,3 +230,17 @@ void VehicleRental::ExportData() {
     }
     out.close();
 }
+
+
+template <typename T>
+void ShowInfo(T& instance){};
+
+template <>
+void ShowInfo <Customer> (Customer& customer){
+    std::cout << customer << std::endl;
+};
+
+template <>
+void ShowInfo <Car> (Car& vehicle){
+    std::cout << vehicle << " Liczba miejsc: " <<  << ::endl;
+};
