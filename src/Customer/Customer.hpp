@@ -19,6 +19,7 @@ class Customer : protected VehicleRental{
     public:
 		Customer(const std::string, const std::string, const long long, const char, Vehicle, int); //Konstruktor
 		Customer(const std::string, const std::string, const long long, const char);
+		Customer();
 		void rent_vehicle(const Vehicle); //funkcja do wypozyczania pojazdu
 		void pay(const int); //funkcja oplaty
 		void return_vehicle(); //funkcja do zwracania pojazdu
