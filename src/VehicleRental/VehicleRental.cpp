@@ -5,20 +5,20 @@ std::ofstream out;
 
 template <typename T>
 
-void VehicleRental::Add(T& instance){};
+void VehicleRental::Add(T instance){};
 
 template <>
-void VehicleRental::Add <Truck> (Truck& vehicle){
+void VehicleRental::Add <Truck> (Truck vehicle){
     TruckList.push_back(vehicle);
 };
 
 template <>
-void VehicleRental::Add <Car>(Car& vehicle) {
+void VehicleRental::Add <Car>(Car vehicle) {
     CarList.push_back(vehicle);
 };
 
 template <>
-void VehicleRental :: Add <Customer> (Customer& customer){
+void VehicleRental :: Add <Customer> (Customer customer){
     CustomerList.push_back(customer);
 };
 

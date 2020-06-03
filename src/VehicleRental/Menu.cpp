@@ -30,7 +30,7 @@ Truck enter_truck()
     return autko;
 }
 
-Customer& enter_customer()
+Customer enter_customer()
 {
     std::string name, drugi;
     long long jeden;

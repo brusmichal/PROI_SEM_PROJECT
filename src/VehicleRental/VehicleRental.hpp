@@ -16,17 +16,17 @@ public:
     std::vector <Customer> CustomerList;
 
 public:
-    VehicleRental() {
-        std::vector <Car>* CarList = new std::vector <Car>();
-        std::vector <Truck>* TruckList = new std::vector <Truck>();
-        std::vector <Customer>* CustomerList = new std::vector <Customer>();
+    // VehicleRental() {
+    //     std::vector <Car> CarList = new std::vector <Car>();
+    //     std::vector <Truck> TruckList = new std::vector <Truck>();
+    //     std::vector <Customer> CustomerList = new std::vector <Customer>();
 
-    }
-    ~VehicleRental() {
-        delete CarList;
-        delete TruckList;
-        delete CustomerList;
-    };
+    // }
+    // ~VehicleRental() {
+    //     delete CarList;
+    //     delete TruckList;
+    //     delete CustomerList;
+    // };
 
     void Menu();
     void menu_customer(int);
@@ -41,7 +41,7 @@ public:
     template <typename T>
     typename std::vector<T>::iterator Find(const T& value);
     template <typename T>
-    void Add(T& instance);
+    void Add(T instance);
     template <typename T>
     void Delete(T& instance);
 
