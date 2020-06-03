@@ -74,6 +74,22 @@ Car::Car(std::string nam, int d, std::string n, int c, int s) :Vehicle(nam, d, n
 	numberOfSeats = s;
 }
 
+Car::Car(std::string nam, int d, std::string n, int c, int s, int con, bool isR, bool isW) : Vehicle(nam, d, n, c, con, isR, isW) {
+	numberOfSeats = s;
+}
+
+Car::Car() : Vehicle() {
+	numberOfSeats = 0;
+}
+
 Truck::Truck(std::string nam, int d, std::string n, int c, int ca) : Vehicle(nam, d, n, c) {
 	capacity = ca;
+}
+
+Truck::Truck(std::string nam, int d, std::string n, int c, int ca, int con, bool isR, bool isW) : Vehicle(nam, d, n, c, con, isR, isW) {
+	capacity = ca;
+}
+
+Truck::Truck() : Vehicle() {
+	capacity = 0;
 }
