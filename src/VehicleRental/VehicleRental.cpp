@@ -26,7 +26,7 @@ void VehicleRental :: Add <Customer> (Customer& customer){
 
 template <typename T>
 
-typename std::vector<T>::iterator VehicleRental::Find <T>(const T& value) {};
+typename std::vector<T>::iterator VehicleRental::Find(const T& value) {};
 
 template<>
 std::vector<Car>::iterator VehicleRental::Find <Car>(const Car& vehicle) {

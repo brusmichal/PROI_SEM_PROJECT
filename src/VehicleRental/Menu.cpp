@@ -1,6 +1,6 @@
 #include "VehicleRental.hpp"
 
-Car& enter_car()
+Car enter_car()
 {
     std::string name, drugi;
     int jeden, dwa, trzy;
@@ -15,7 +15,7 @@ Car& enter_car()
     return autko;
 }
 
-Truck& enter_truck()
+Truck enter_truck()
 {
     std::string name, drugi;
     int jeden, dwa, trzy;

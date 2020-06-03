@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-class Vehicle /*: protected VehicleRental <Vehicle>*/ {
+class Vehicle{
 public:
 	std::string numberplate;
 protected:

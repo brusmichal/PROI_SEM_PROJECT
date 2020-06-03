@@ -8,7 +8,7 @@
 #include "../Vehicle/Vehicle.hpp"
 
 
-class Customer /*: protected VehicleRental*/{
+class Customer{
 	std::string name;
 	std::string surname;
 	long long pesel;
