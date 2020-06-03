@@ -1,7 +1,6 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 #include <iostream>
-#include "../VehicleRental/VehicleRental.hpp"
 #include <string>
 
 class Vehicle /*: protected VehicleRental <Vehicle>*/ {
