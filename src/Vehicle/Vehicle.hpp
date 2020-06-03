@@ -1,14 +1,14 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 #include <iostream>
-#include "../VehicleRental/VehicleRental.hpp"
 #include <string>
 
 class Vehicle /*: protected VehicleRental <Vehicle>*/ {
+public:
+	std::string numberplate;
 protected:
 	std::string name;
 	int dateProduction;
-	std::string numberplate;
 	int costOfRenting;
 	int condition;
 	bool isRent;
@@ -33,17 +33,29 @@ protected:
 	friend class VehicleRental;
 };
 
-class Car :protected Vehicle {
+class Car :public Vehicle {
 	int numberOfSeats;
 
+public:
 	Car(std::string, int, std::string, int, int);
+	Car(std::string, int, std::string, int, int, int, bool, bool);
+	Car();
 	//	~Car();
+
+	friend class Customer;
+	friend class VehicleRental;
 };
 
-class Truck :protected Vehicle {
+class Truck :public Vehicle {
 	int capacity;
 
+public:
 	Truck(std::string, int, std::string, int, int);
+	Truck(std::string, int, std::string, int, int,  int, bool, bool);
+	Truck();
 	//	~Truck();
+
+	friend class Customer;
+	friend class VehicleRental;
 };
 #endif
