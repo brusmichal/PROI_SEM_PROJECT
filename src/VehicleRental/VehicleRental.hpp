@@ -13,23 +13,26 @@ std::ofstream out;
 
 
 class VehicleRental{
-    std::vector <Vehicle> VehicleList;
+    std::vector <Car> CarList;
+    std::vector <Truck> TruckList;
     std::vector <Customer> CustomerList;
 
 public:
     VehicleRental(){
-        VehicleList = new std::vector <Vehicle>();
+        CarList = new std::vector <Car>();
+        TruckList = new std::vector <Truck>();
         CustomerList = new std::vector <Customer>();
         
     }
     ~VehicleRental(){
-        delete VehicleList;
+        delete CarList;
+        delete TruckList
         delete CustomerList;
     };
 
     void Menu();
     void menu_customer(int);
-    void menu_vehicle(int);
+    void menu_vehicle(int, bool);
     void LoadData();
     void ExportData();
 
