@@ -69,14 +69,13 @@ std::vector<Customer>::iterator VehicleRental::Find (const Customer& customer) {
 }
 */
 //---------------------------------------------------------------    
-
-void VehicleRental::Rent(Vehicle& vehicle, Customer& Customer) //cos nie tak
+void VehicleRental::Rent(Vehicle& vehicle, Customer& Customer)
 {
     try
     {
-        Customer.rent_vehicle(vehicle);
         vehicle.Rent();
         vehicle.ReduceCondition();
+        Customer.rent_vehicle(vehicle);
     }
     catch (std::string exnum)
     {
@@ -84,7 +83,7 @@ void VehicleRental::Rent(Vehicle& vehicle, Customer& Customer) //cos nie tak
     }
 }
 
-void VehicleRental::Return(Customer& customer) //cos nie tak
+void VehicleRental::Return(Customer& customer)
 {
     try
     {

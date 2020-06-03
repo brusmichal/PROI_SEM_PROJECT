@@ -5,13 +5,31 @@
 #include <algorithm>
 #include <fstream>
 #include "../Customer/Customer.hpp"
+#include "../Vehicle/Vehicle.hpp"
 
 class VehicleRental {
     std::vector <Vehicle> VehicleList;
     std::vector <Customer> CustomerList;
 
+    VehicleRental() {};
+
 public:
 
+    VehicleRental(const VehicleRental&) {};
+    static VehicleRental& getSingleton()
+    {
+        static VehicleRental singleton;
+        return singleton;
+    }
+    //    VehicleRental(){
+    //        VehicleList = new std::vector <Vehicle>();
+    //        CustomerList = new std::vector <Customer>();
+    //        
+    //    }
+    //    ~VehicleRental(){
+    //        delete VehicleList;
+    //        delete CustomerList;
+    //    };
     void Menu();
     void menu_customer(int);
     void menu_vehicle(int);
@@ -30,7 +48,7 @@ public:
     void Delete(T& instance);
 
     // void ShowVehicleList(/*enum:all, free, taken"*/);
-   // void ShowCustomerList(/*enum: all, withdebt */);
+    // void ShowCustomerList(/*enum: all, withdebt */);
     template <typename T>
     friend void ShowInfo(T& instance);
 
