@@ -86,6 +86,17 @@ Car::Car() : Vehicle() {
 	numberOfSeats = 0;
 }
 
+std::ostream& operator<< (std::ostream& os, Car& vehi)
+{
+	std::string status;
+	if (vehi.isRent) status = " ";
+	else status = " nie ";
+	return os << "Nazwa pojazdu " + vehi.name + " Numer rejestracyjny " + vehi.numberplate
+		+ " Data produkcji " + std::to_string(vehi.dateProduction) + " Koszt wypozyczenia "
+		+ std::to_string(vehi.costOfRenting) + " Ilosc siedzen: "+ std::to_string(vehi.numberOfSeats)
+		+ " Pojazd sprawny w " + std::to_string(vehi.condition) + "% Pojazd" + status + "jest wypozyczony";
+}
+
 Truck::Truck(std::string nam, int d, std::string n, int c, int ca) : Vehicle(nam, d, n, c) {
 	capacity = ca;
 }
@@ -96,4 +107,15 @@ Truck::Truck(std::string nam, int d, std::string n, int c, int ca, int con, bool
 
 Truck::Truck() : Vehicle() {
 	capacity = 0;
+}
+
+std::ostream& operator<< (std::ostream& os, Truck& vehi)
+{
+	std::string status;
+	if (vehi.isRent) status = " ";
+	else status = " nie ";
+	return os << "Nazwa pojazdu " + vehi.name + " Numer rejestracyjny " + vehi.numberplate
+		+ " Data produkcji " + std::to_string(vehi.dateProduction) + " Koszt wypozyczenia "
+		+ std::to_string(vehi.costOfRenting) + " Pojemnosc bagaznika: " + std::to_string(vehi.capacity)
+		+ " Pojazd sprawny w " + std::to_string(vehi.condition) + "% Pojazd" + status + "jest wypozyczony";
 }
