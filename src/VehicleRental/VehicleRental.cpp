@@ -1,95 +1,98 @@
 #include "VehicleRental.hpp"
 
+std::ifstream in;
+std::ofstream out;
+
 template <typename T>
 
-void VehicleRental::Add(T& instance){};
+void VehicleRental::Add(T instance){};
 
 template <>
-void VehicleRental::Add <Truck> (Truck& vehicle){
+void VehicleRental::Add <Truck> (Truck vehicle){
     TruckList.push_back(vehicle);
 };
 
 template <>
-void VehicleRental::Add <Car>(Car& vehicle) {
+void VehicleRental::Add <Car>(Car vehicle) {
     CarList.push_back(vehicle);
 };
 
 template <>
-void VehicleRental :: Add <Customer> (Customer& customer){
+void VehicleRental :: Add <Customer> (Customer customer){
     CustomerList.push_back(customer);
 };
 
 //-----------------------------------------------------------
 
-template <typename T>
-
-void VehicleRental :: Delete(T& instance){};
-
-template <>
-void VehicleRental :: Delete <Truck>(Truck& vehicle){
-    TruckList.erase(Find(vehicle));
-};
-
-template <>
-void VehicleRental::Delete <Car>(Car& vehicle) {
-    CarList.erase(Find(vehicle));
-};
-
-template <>
-void VehicleRental :: Delete <Customer>(Customer& customer){
-    CustomerList.erase(Find(customer));
-};
+//template <typename T>
+//
+//typename std::vector<T>::iterator VehicleRental::Find <T>(const T& value) {};
+//
+//template<>
+//std::vector<Car>::iterator VehicleRental::Find <Car>(const Car& vehicle) {
+//
+//    std::vector<Car>::iterator position;
+//    auto it = std::find(CarList.begin(), CarList.end(), vehicle);
+//
+//    if (it == CarList.end())
+//        throw "Vehicle not found";
+//    else
+//    {
+//        position = it;
+//        return position;
+//    }
+//};
+//
+//template<>
+//std::vector<Truck>::iterator VehicleRental::Find <Truck>(const Truck& vehicle) {
+//
+//    std::vector<Truck>::iterator position;
+//    auto it = std::find(TruckList.begin(), TruckList.end(), vehicle);
+//
+//    if (it == TruckList.end())
+//        throw "Vehicle not found";
+//    else
+//    {
+//        position = it;
+//        return position;
+//    }
+//};
+//
+//template<>
+//std::vector<Customer>::iterator VehicleRental::Find <Customer>(const Customer& customer) {
+//
+//    std::vector<Customer>::iterator position;
+//    auto it = std::find(CustomerList.begin(), CustomerList.end(), customer);
+//
+//    if (it == CustomerList.end())
+//        throw "Customer not found";
+//    else
+//    {
+//        position = it;
+//        return position;
+//    }
+//};
 
 //------------------------------------------------------------
 
-template <typename T>
-
-typename std::vector<T>::iterator VehicleRental  :: Find <T>(const T& value){};
-
-template<>
-std::vector<Car>::iterator VehicleRental :: Find <Car>(const Car& vehicle){
-
-    std::vector<Car>::iterator position;
-    auto it = std::find(CarList.begin(), CarList.end(), vehicle);
-
-    if (it == CarList.end())
-        throw "Vehicle not found";
-    else
-    {
-        position = it;
-        return position;
-    }
-};
-
-template<>
-std::vector<Truck>::iterator VehicleRental::Find <Truck>(const Truck& vehicle) {
-
-    std::vector<Truck>::iterator position;
-    auto it = std::find(TruckList.begin(), TruckList.end(), vehicle);
-
-    if (it == TruckList.end())
-        throw "Vehicle not found";
-    else
-    {
-        position = it;
-        return position;
-    }
-};
-
-template<>
-std::vector<Customer>::iterator VehicleRental :: Find <Customer>(const Customer& customer){
-
-    std::vector<Customer>::iterator position;
-    auto it = std::find(CustomerList.begin(), CustomerList.end(), customer);
-
-    if (it == CustomerList.end())
-        throw "Customer not found";
-    else
-    {
-        position = it;
-        return position;
-    }  
-};
+//template <typename T>
+//
+//void VehicleRental :: Delete(T& instance){};
+//
+//template <>
+//void VehicleRental :: Delete <Truck>(Truck& vehicle){
+//    TruckList.erase(Find(vehicle));
+//};
+//
+//template <>
+//void VehicleRental::Delete <Car>(Car& vehicle) {
+//    CarList.erase(Find(vehicle));
+//};
+//
+//template <>
+//void VehicleRental :: Delete <Customer>(Customer& customer){
+//    CustomerList.erase(Find(customer));
+//};
 
 //---------------------------------------------------------------
 void VehicleRental::Rent(Vehicle& vehicle, Customer& Customer)
@@ -170,32 +173,33 @@ void VehicleRental::LoadData() {
     }
     in.close();
     in.open("Customers.txt");
+    Car autko1;
+    Truck autko2;
+    bool isCar = 0;
+    bool isTruck = 1;
     while (in >> name >> c >> pesel >> drive >> vehi >> b) {
-        Car autko;
-        Truck tirek;
-        bool isCar;
         if (vehi != "BS00000") {
-            bool isTruck = 1;
-            for (int i = 0; i < CarList.size(); ++i) {
-                if (CarList[i].numberplate == vehi) {
-                    autko = CarList[i];
+            isTruck = 1;
+            for (int j = 0; j < CarList.size(); ++j) {
+                if (CarList[j].numberplate == vehi) {
+                    autko1 = CarList[j];
                     isTruck = 0;
                 }
             }
             if (isTruck) {
-                for (int i = 0; i < TruckList.size(); ++i) {
-                    if (TruckList[i].numberplate == vehi) tirek = TruckList[i];
+                for (int j = 0; j < TruckList.size(); ++j) {
+                    if (TruckList[j].numberplate == vehi) autko2 = TruckList[j];
                 }
             }
-            isCar = !isTruck;
+            isCar = (!isTruck);
         }
         Customer klient;
         if (isCar) {
-            Customer kli(name, c, pesel, drive, autko, b);
+            Customer kli(name, c, pesel, drive, autko1, b);
             klient = kli;
         }
         else {
-            Customer kli(name, c, pesel, drive, tirek, b);
+            Customer kli(name, c, pesel, drive, autko2, b);
             klient = kli;
         }
         CustomerList.push_back(klient);
@@ -208,7 +212,7 @@ void VehicleRental::ExportData() {
     for (int i = 0; i < CarList.size(); ++i) {
         out << CarList[i].name << " " << CarList[i].dateProduction
             << " " << CarList[i].numberplate << " " << CarList[i].costOfRenting
-            << " " << CarList[i].numberOfSeats << " " << " " << CarList[i].condition << " "
+            << " " << CarList[i].numberOfSeats << " " << CarList[i].condition << " "
             << CarList[i].isRent << " " << CarList[i].isWork << std::endl;
     }
     out.close();
@@ -223,8 +227,8 @@ void VehicleRental::ExportData() {
     out.open("Customers.txt");
     for (int i = 0; i < CustomerList.size(); ++i) {
         out << CustomerList[i].name << " " << CustomerList[i].surname << " "
-            << CustomerList[i].pesel << " " << CustomerList[i].rented_vehicle.numberplate
-            << " " << CustomerList[i].debt << std::endl;
+            << CustomerList[i].pesel << " " << CustomerList[i].driving_license_type << " " 
+            << CustomerList[i].rented_vehicle.numberplate << " " << CustomerList[i].debt << std::endl;
     }
     out.close();
 }
