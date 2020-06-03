@@ -5,8 +5,13 @@ template <typename T>
 void VehicleRental::Add(T& instance){};
 
 template <>
-void VehicleRental::Add <Vehicle> (Vehicle& vehicle){
-    VehicleList.push_back(vehicle);
+void VehicleRental::Add <Truck> (Truck& vehicle){
+    TruckList.push_back(vehicle);
+};
+
+template <>
+void VehicleRental::Add <Car>(Car& vehicle) {
+    CarList.push_back(vehicle);
 };
 
 template <>
@@ -21,9 +26,15 @@ template <typename T>
 void VehicleRental :: Delete(T& instance){};
 
 template <>
-void VehicleRental :: Delete <Vehicle>(Vehicle& vehicle){
-    VehicleList.erase(Find(vehicle));
+void VehicleRental :: Delete <Truck>(Truck& vehicle){
+    TruckList.erase(Find(vehicle));
 };
+
+template <>
+void VehicleRental::Delete <Car>(Car& vehicle) {
+    CarList.erase(Find(vehicle));
+};
+
 template <>
 void VehicleRental :: Delete <Customer>(Customer& customer){
     CustomerList.erase(Find(customer));
@@ -36,12 +47,27 @@ template <typename T>
 typename std::vector<T>::iterator VehicleRental  :: Find <T>(const T& value){};
 
 template<>
-std::vector<Vehicle>::iterator VehicleRental :: Find <Vehicle>(const Vehicle& vehicle){
+std::vector<Car>::iterator VehicleRental :: Find <Car>(const Car& vehicle){
 
-    std::vector<Vehicle>::iterator position;
-    auto it = std::find(VehicleList.begin(), VehicleList.end(), vehicle);
+    std::vector<Car>::iterator position;
+    auto it = std::find(CarList.begin(), CarList.end(), vehicle);
 
-    if (it == VehicleList.end())
+    if (it == CarList.end())
+        throw "Vehicle not found";
+    else
+    {
+        position = it;
+        return position;
+    }
+};
+
+template<>
+std::vector<Truck>::iterator VehicleRental::Find <Truck>(const Truck& vehicle) {
+
+    std::vector<Truck>::iterator position;
+    auto it = std::find(TruckList.begin(), TruckList.end(), vehicle);
+
+    if (it == TruckList.end())
         throw "Vehicle not found";
     else
     {
@@ -95,12 +121,24 @@ void VehicleRental::Return(Customer& customer)
 {
     try
     {
-        for (int i = 0; i < VehicleList.size(); i++)
+        bool isTruck = 1;
+        for (int i = 0; i < CarList.size(); i++)
         {
-            if (VehicleList[i].numberplate == customer.rented_vehicle.numberplate)
+            if (CarList[i].numberplate == customer.rented_vehicle.numberplate)
             {
-                VehicleList[i].Return();
+                CarList[i].Return();
+                isTruck = 0;
                 break;
+            }
+        }
+        if (isTruck) {
+            for (int i = 0; i < TruckList.size(); i++)
+            {
+                if (TruckList[i].numberplate == customer.rented_vehicle.numberplate)
+                {
+                    TruckList[i].Return();
+                    break;
+                }
             }
         }
         customer.return_vehicle();
@@ -112,39 +150,74 @@ void VehicleRental::Return(Customer& customer)
 }
 
 //-------------------------------------------------------------
+
 void VehicleRental::LoadData() {
-    std::string a, c, vehi;
-    int b, d, e;
-    bool f, g;
+    std::string name, c, vehi;
+    int b, cost, cond, f;
+    bool isR, isW;
     long long pesel;
     char drive;
-    in.open("Vehicles.txt");
-    while (in >> a >> b >> c >> d >> e >> f >> g) {
-        Vehicle autko(a, b, c, d, e, f, g);
-        VehicleList.push_back(autko);
+    in.open("Cars.txt");
+    while (in >> name >> b >> c >> cost >> cond >> f >> isR >> isW) {
+        Car autko(name, b, c, cost, cond, f, isR, isW);
+        CarList.push_back(autko);
+    }
+    in.close();
+    in.open("Trucks.txt");
+    while (in >> name >> b >> c >> cost >> cond >> f >> isR >> isW) {
+        Truck autko(name, b, c, cost, cond, f, isR, isW);
+        TruckList.push_back(autko);
     }
     in.close();
     in.open("Customers.txt");
-    while (in >> a >> c >> pesel >> drive >> vehi >> b) {
-        Vehicle autko;
+    while (in >> name >> c >> pesel >> drive >> vehi >> b) {
+        Car autko;
+        Truck tirek;
+        bool isCar;
         if (vehi != "BS00000") {
-            for (int i = 0; i < VehicleList.size(); ++i) {
-                if (VehicleList[i].numberplate == vehi) autko = VehicleList[i];
+            bool isTruck = 1;
+            for (int i = 0; i < CarList.size(); ++i) {
+                if (CarList[i].numberplate == vehi) {
+                    autko = CarList[i];
+                    isTruck = 0;
+                }
             }
+            if (isTruck) {
+                for (int i = 0; i < TruckList.size(); ++i) {
+                    if (TruckList[i].numberplate == vehi) tirek = TruckList[i];
+                }
+            }
+            isCar = !isTruck;
         }
-        Customer klient(a, c, pesel, drive, autko, b);
+        Customer klient;
+        if (isCar) {
+            Customer kli(name, c, pesel, drive, autko, b);
+            klient = kli;
+        }
+        else {
+            Customer kli(name, c, pesel, drive, tirek, b);
+            klient = kli;
+        }
         CustomerList.push_back(klient);
     }
     in.close();
 }
 
 void VehicleRental::ExportData() {
-    out.open("Vehicles.txt");
-    for (int i = 0; i < VehicleList.size(); ++i) {
-        out << VehicleList[i].name << " " << VehicleList[i].dateProduction 
-            << " " << VehicleList[i].numberplate << " " << VehicleList[i].costOfRenting 
-            << " " << VehicleList[i].condition << " " << VehicleList[i].isRent << " " 
-            << VehicleList[i].isWork << std::endl;
+    out.open("Cars.txt");
+    for (int i = 0; i < CarList.size(); ++i) {
+        out << CarList[i].name << " " << CarList[i].dateProduction
+            << " " << CarList[i].numberplate << " " << CarList[i].costOfRenting
+            << " " << CarList[i].numberOfSeats << " " << " " << CarList[i].condition << " "
+            << CarList[i].isRent << " " << CarList[i].isWork << std::endl;
+    }
+    out.close();
+    out.open("Trucks.txt");
+    for (int i = 0; i < TruckList.size(); ++i) {
+        out << TruckList[i].name << " " << TruckList[i].dateProduction
+            << " " << TruckList[i].numberplate << " " << TruckList[i].costOfRenting
+            << " " << TruckList[i].capacity << " " << TruckList[i].condition << " " 
+            << TruckList[i].isRent << " " << TruckList[i].isWork << std::endl;
     }
     out.close();
     out.open("Customers.txt");
