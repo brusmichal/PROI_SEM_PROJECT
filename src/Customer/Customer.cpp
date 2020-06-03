@@ -1,6 +1,3 @@
-#include <iostream>
-#include <cstdlib>
-#include <string>
 #include "../Customer/Customer.hpp"
 
 Customer::Customer(const std::string str1, const std::string str2, const long long pes, const char type, Vehicle car= Vehicle(), int deb=0)
