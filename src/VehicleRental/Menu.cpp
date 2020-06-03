@@ -1,7 +1,6 @@
-#include <iostream>
 #include "VehicleRental.hpp"
 
-Car& enter_car()
+Car enter_car()
 {
     std::string name, drugi;
     int jeden, dwa, trzy;
@@ -16,7 +15,7 @@ Car& enter_car()
     return autko;
 }
 
-Truck& enter_truck()
+Truck enter_truck()
 {
     std::string name, drugi;
     int jeden, dwa, trzy;
@@ -31,7 +30,7 @@ Truck& enter_truck()
     return autko;
 }
 
-Customer& enter_customer()
+Customer enter_customer()
 {
     std::string name, drugi;
     long long jeden;
@@ -49,7 +48,7 @@ Customer& enter_customer()
 void VehicleRental::menu_customer(int numer)
 {
     long long pesel;
-    int ile, wybor;
+    int ile, wybor, end;
     using std::cout;
     using std::cin;
     using std::endl;
@@ -66,7 +65,6 @@ void VehicleRental::menu_customer(int numer)
         case 1:
             cout << CustomerList[numer] << endl;
             cout << "Dostepne samochody" << endl;
-            int end = 0;
             for (int i = 0; i < CarList.size(); ++i) {
                 if (!CarList[i].isRent) cout << i << " " << CarList[i] << endl;
                 end = i;
@@ -117,10 +115,12 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
             cout << "Kto chce wypozyczyc wypozyczyc? "; cin >> wybor;
             if (isTruck) Rent(TruckList[numer], CustomerList[wybor]);
             else Rent(CarList[numer], CustomerList[wybor]);
+            system("pause");
             break;
         case 2:
             if (isTruck) TruckList[numer].Repair();
             else CarList[numer].Repair();
+            system("pause");
             break;
         case 0:
             break;
@@ -134,11 +134,13 @@ void VehicleRental::Menu()
 {
     long long pesel;
     std::string nr;
+    bool isTruck = 1;
     using std::cout;
     using std::cin;
     using std::endl;
     int x = 8;
     LoadData();
+    system("pause");
     while (x != 0) {
         int numer = -1;
         system("cls");
@@ -171,7 +173,6 @@ void VehicleRental::Menu()
             else cout << "Brak klienta o danym peselu" << endl;
             break;
         case 5:
-            bool isTruck = 1;
             cout << "Podaj nr rejestracyjny "; cin >> nr;
             for (int i = 0; i < CarList.size(); ++i)
                 if (CarList[i].numberplate == nr)
@@ -186,9 +187,11 @@ void VehicleRental::Menu()
                     numer = i;
                     break;
                 }
-            if (numer >= 0) menu_vehicle(numer,isTruck);
-            else
+            if (numer >= 0) menu_vehicle(numer, isTruck);
+            else{
                 cout << "Brak pojazdu o danym nr rejestracyjnym" << endl;
+                system("pause");
+            }
             break;
         case 0:
             break;
