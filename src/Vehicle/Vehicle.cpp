@@ -60,6 +60,10 @@ void Vehicle::Repair() {
 	}
 }
 
+bool Vehicle::operator ==(const Vehicle& vehi1) {
+	return vehi1.numberplate == numberplate;
+}
+
 std::ostream& operator<< (std::ostream& os, Vehicle& vehi)
 {
 	std::string status;
