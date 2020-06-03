@@ -61,8 +61,18 @@ char Customer::show_driving_type()
 	return driving_license_type;
 }
 
+bool Customer::operator==(const Customer& cust)
+{
+	return pesel == cust.pesel;
+}
+
 std::ostream& operator<< (std::ostream& os, Customer& klient)
 {
-	return os << klient.name + " " + klient.surname + " Pesel: " + std::to_string(klient.pesel)
-		+ " Zaleglosc: " + std::to_string(klient.debt) << " Wypozyczone: " << klient.rented_vehicle << std::endl;
+	std::string zwroc = klient.name + " " + klient.surname + " Pesel: " + std::to_string(klient.pesel)
+		+ " Zaleglosc: " + std::to_string(klient.debt) + " Wypozyczone: ";
+	if (!klient.rented_vehicle.canRent())
+		return os << zwroc << "Tak" << std::endl;
+	else
+		return os << zwroc << " brak" << std::endl;
+
 }
