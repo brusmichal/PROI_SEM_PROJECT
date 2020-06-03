@@ -22,11 +22,11 @@ public:
         std::vector <Customer>* CustomerList = new std::vector <Customer>();
 
     }
-    /*~VehicleRental() {
+    ~VehicleRental() {
         delete CarList;
         delete TruckList;
         delete CustomerList;
-    };*/
+    };
 
     void Menu();
     void menu_customer(int);
@@ -38,12 +38,12 @@ public:
     void Payment(Customer& customer, int money);
     void Return(Customer& customer);
 
-    //template <typename T>
-    //typename std::vector<T>::iterator Find(const T& value);
+    template <typename T>
+    typename std::vector<T>::iterator Find(const T& value);
     template <typename T>
     void Add(T& instance);
-    //template <typename T>
-    //void Delete(T& instance);
+    template <typename T>
+    void Delete(T& instance);
 
     // void ShowVehicleList(/*enum:all, free, taken, car, truck"*/);
     // void ShowCustomerList(/*enum: all, withdebt */);

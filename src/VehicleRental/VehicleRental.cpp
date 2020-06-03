@@ -24,75 +24,74 @@ void VehicleRental :: Add <Customer> (Customer& customer){
 
 //-----------------------------------------------------------
 
-//template <typename T>
-//
-//typename std::vector<T>::iterator VehicleRental::Find <T>(const T& value) {};
-//
-//template<>
-//std::vector<Car>::iterator VehicleRental::Find <Car>(const Car& vehicle) {
-//
-//    std::vector<Car>::iterator position;
-//    auto it = std::find(CarList.begin(), CarList.end(), vehicle);
-//
-//    if (it == CarList.end())
-//        throw "Vehicle not found";
-//    else
-//    {
-//        position = it;
-//        return position;
-//    }
-//};
-//
-//template<>
-//std::vector<Truck>::iterator VehicleRental::Find <Truck>(const Truck& vehicle) {
-//
-//    std::vector<Truck>::iterator position;
-//    auto it = std::find(TruckList.begin(), TruckList.end(), vehicle);
-//
-//    if (it == TruckList.end())
-//        throw "Vehicle not found";
-//    else
-//    {
-//        position = it;
-//        return position;
-//    }
-//};
-//
-//template<>
-//std::vector<Customer>::iterator VehicleRental::Find <Customer>(const Customer& customer) {
-//
-//    std::vector<Customer>::iterator position;
-//    auto it = std::find(CustomerList.begin(), CustomerList.end(), customer);
-//
-//    if (it == CustomerList.end())
-//        throw "Customer not found";
-//    else
-//    {
-//        position = it;
-//        return position;
-//    }
-//};
+template <typename T>
+
+typename std::vector<T>::iterator VehicleRental::Find <T>(const T& value) {};
+
+template<>
+std::vector<Car>::iterator VehicleRental::Find <Car>(const Car& vehicle) {
+
+    std::vector<Car>::iterator position;
+    auto it = std::find(CarList.begin(), CarList.end(), vehicle);
+
+    if (it == CarList.end())
+        throw "Vehicle not found";
+    else
+    {
+        position = it;
+        return position;
+    }
+};
+
+template<>
+std::vector<Truck>::iterator VehicleRental::Find <Truck>(const Truck& vehicle) {
+
+    std::vector<Truck>::iterator position;
+    auto it = std::find(TruckList.begin(), TruckList.end(), vehicle);
+
+    if (it == TruckList.end())
+        throw "Vehicle not found";
+    else
+    {
+        position = it;
+        return position;
+    }
+};
+
+template<>
+std::vector<Customer>::iterator VehicleRental::Find <Customer>(const Customer& customer) {
+
+    std::vector<Customer>::iterator position;
+    auto it = std::find(CustomerList.begin(), CustomerList.end(), customer);
+
+    if (it == CustomerList.end())
+        throw "Customer not found";
+    else
+    {
+        position = it;
+        return position;
+    }
+};
 
 //------------------------------------------------------------
 
-//template <typename T>
-//
-//void VehicleRental :: Delete(T& instance){};
-//
-//template <>
-//void VehicleRental :: Delete <Truck>(Truck& vehicle){
-//    TruckList.erase(Find(vehicle));
-//};
-//
-//template <>
-//void VehicleRental::Delete <Car>(Car& vehicle) {
-//    CarList.erase(Find(vehicle));
-//};
-//
-//template <>
-//void VehicleRental :: Delete <Customer>(Customer& customer){
-//    CustomerList.erase(Find(customer));
-//};
+template <typename T>
+void VehicleRental :: Delete(T& instance){};
+
+template <>
+void VehicleRental :: Delete <Truck>(Truck& vehicle){
+    TruckList.erase(Find(vehicle));
+};
+
+template <>
+void VehicleRental::Delete <Car>(Car& vehicle) {
+    CarList.erase(Find(vehicle));
+};
+
+template <>
+void VehicleRental :: Delete <Customer>(Customer& customer){
+    CustomerList.erase(Find(customer));
+};
 
 //---------------------------------------------------------------
 void VehicleRental::Rent(Vehicle& vehicle, Customer& Customer)

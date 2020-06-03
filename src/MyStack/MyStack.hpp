@@ -1,10 +1,12 @@
 #ifndef MYSTACK_H
 #define MYSTACK_H
+#include <iostream>
 
 template <typename T>
 class MyStack{
-    T *my_stack;
-    int top;
+    T *myStack;
+   // int top;
+    int stackSize;
 public:
     MyStack();
     ~MyStack();
