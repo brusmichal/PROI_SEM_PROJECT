@@ -1,13 +1,14 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 #include <iostream>
-#include <cstdlib>
 #include <cstring>
 #include <vector>
-#include "../VehicleRental/VehicleRental.hpp"
+#include <cstdlib>
+#include <string>
+#include "../Vehicle/Vehicle.hpp"
 
 
-class Customer : protected VehicleRental{
+class Customer /*: protected VehicleRental*/{
 	std::string name;
 	std::string surname;
 	long long pesel;
