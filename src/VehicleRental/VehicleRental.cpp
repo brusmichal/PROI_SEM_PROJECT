@@ -250,3 +250,41 @@ template <>
 void ShowInfo <Truck> (Truck& vehicle){
     std::cout << vehicle << std::endl;
 };
+
+
+
+void VehicleRental::ShowVehicleList (VehicleTypes type_v){
+    if(type_v == all_v){
+        for(int i = 0 ; i<CarList.size(); i++){
+            ShowInfo(CarList[i]);
+            ShowInfo(TruckList[i]);
+        };
+    }
+    
+    else if (type_v == free){
+        for(int i = 0; i<CarList.size(); i++)
+            if(!CarList[i].isRent)
+                ShowInfo(CarList[i]);
+        for(int i = 0; i<TruckList.size(); i++)
+            if(!TruckList[i].isRent)
+                ShowInfo(TruckList[i]);
+        
+    }
+    else if (type_v == car_t)
+        for(int i = 0; i<CarList.size(); i++)
+            ShowInfo(CarList[i]);
+    else
+        for(int i = 0; i<TruckList.size(); i++)
+            ShowInfo(TruckList[i]);    
+}
+
+
+void VehicleRental :: ShowCustomerList(CustomerTypes type_c){
+    if(type_c == all_c)
+        for(int i=0; i < CustomerList.size(); i++)
+            ShowInfo(CustomerList[i]);
+    else
+        for(int i=0; i < CustomerList.size(); i++)
+            if(CustomerList[i].debt !=0)
+                ShowInfo(CustomerList[i]);
+}

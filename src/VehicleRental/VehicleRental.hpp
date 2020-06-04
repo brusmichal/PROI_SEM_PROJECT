@@ -7,7 +7,8 @@
 #include <iostream>
 #include "../Vehicle/Vehicle.hpp"
 #include "../Customer/Customer.hpp"
-#include "../MyStack/MyStack.hpp"
+#include "../MyStack/MyStack_impl.hpp"
+#include "../VehicleRental/Enum.hpp"
 
 
 
@@ -58,8 +59,8 @@ public:
     template <typename T>
     void Delete(T& instance);
 
-    //void ShowVehicleList(/*enum:all, free, taken, car, truck"*/);
-    //void ShowCustomerList(/*enum: all, withdebt */);
+    void ShowVehicleList(VehicleTypes type_v);
+    void ShowCustomerList(CustomerTypes type_c);
 
 
 
