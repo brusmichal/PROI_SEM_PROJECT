@@ -22,14 +22,14 @@ Customer::Customer(const std::string str1, const std::string str2, const long lo
 
 
 
-// Customer::Customer() {
-// 	name = "";
-// 	surname = "";
-// 	pesel = 0;
-// 	driving_license_type = 'B';
-// 	rented_vehicle = Vehicle();
-// 	debt = 0;
-// }
+Customer::Customer() {
+	name = "";
+	surname = "";
+	pesel = 0;
+	driving_license_type = 'B';
+	rented_vehicle = Vehicle();
+	debt = 0;
+}
 
 void Customer::rent_vehicle(const Vehicle car)
 {
