@@ -26,7 +26,8 @@ class Customer{
 		void return_vehicle(); //funkcja do zwracania pojazdu
 		void show_history();
 		char show_driving_type(); //zwraca typ prawojazd
-
+		
+		bool operator==(const Customer& cust);
 	friend
 		std::ostream& operator<< (std::ostream& os, Customer& cust); //operator wyswietlenia osoby
     friend class Vehicle;

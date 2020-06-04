@@ -26,7 +26,9 @@ void VehicleRental :: Add <Customer> (Customer customer){
 
 template <typename T>
 
-typename std::vector<T>::iterator VehicleRental::Find(const T& value) {};
+typename std::vector<T>::iterator VehicleRental::Find (const T& value) {
+    return {};
+};
 
 template<>
 std::vector<Car>::iterator VehicleRental::Find <Car>(const Car& vehicle) {
@@ -60,7 +62,6 @@ std::vector<Truck>::iterator VehicleRental::Find <Truck>(const Truck& vehicle) {
 
 template<>
 std::vector<Customer>::iterator VehicleRental::Find <Customer>(const Customer& customer) {
-
     std::vector<Customer>::iterator position;
     auto it = std::find(CustomerList.begin(), CustomerList.end(), customer);
 
@@ -242,5 +243,5 @@ void ShowInfo <Customer> (Customer& customer){
 
 template <>
 void ShowInfo <Car> (Car& vehicle){
-    std::cout << vehicle << " Liczba miejsc: " <<  << ::endl;
+    //std::cout << vehicle << " Liczba miejsc: " <<  << std::endl;
 };

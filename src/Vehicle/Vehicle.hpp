@@ -26,9 +26,11 @@ protected:
 	void ReduceCondition();
 	void Repair();
 
+public:
+	bool operator==(const Vehicle&);
+	
 	friend
 		std::ostream& operator<< (std::ostream& os, Vehicle& vehi);
-
 	friend class Customer;
 	friend class VehicleRental;
 };
@@ -41,6 +43,9 @@ public:
 	Car(std::string, int, std::string, int, int, int, bool, bool);
 	Car();
 	//	~Car();
+	friend
+		std::ostream& operator<< (std::ostream& os, Car& vehi);
+
 
 	friend class Customer;
 	friend class VehicleRental;
@@ -54,6 +59,9 @@ public:
 	Truck(std::string, int, std::string, int, int,  int, bool, bool);
 	Truck();
 	//	~Truck();
+	friend
+		std::ostream& operator<< (std::ostream& os, Truck& vehi);
+
 
 	friend class Customer;
 	friend class VehicleRental;
