@@ -5,7 +5,6 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
-//#include "../Vehicle/Vehicle.hpp"
 #include "../Customer/Customer.hpp"
 
 
@@ -37,12 +36,12 @@ public:
     void Payment(Customer& customer, int money);
     void Return(Customer& customer);
 
-    //template <typename T>
-    //typename std::vector<T>::iterator Find(const T& value);
+    template <typename T>
+    typename std::vector<T>::iterator Find(const T& value);
     template <typename T>
     void Add(T instance);
-    //template <typename T>
-    //void Delete(T& instance);
+    template <typename T>
+    void Delete(T& instance);
 
     // void ShowVehicleList(/*enum:all, free, taken, car, truck"*/);
     // void ShowCustomerList(/*enum: all, withdebt */);
