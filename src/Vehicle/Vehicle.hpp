@@ -2,6 +2,8 @@
 #define VEHICLE_H
 #include <iostream>
 #include <string>
+class Customer;
+
 
 class Vehicle{
 public:
@@ -29,8 +31,8 @@ protected:
 public:
 	bool operator==(const Vehicle&);
 	
-	friend
-		std::ostream& operator<< (std::ostream& os, Vehicle& vehi);
+	friend std::ostream& operator<< (std::ostream& os, Vehicle& vehi);
+	friend std::ostream& operator<< (std::ostream& os, Customer& klient);
 	friend class Customer;
 	friend class VehicleRental;
 };

@@ -10,33 +10,36 @@
 #include "../MyStack/MyStack.hpp"
 
 
+
 class VehicleRental {
 public:
     std::vector <Car> CarList;
     std::vector <Truck> TruckList;
     std::vector <Customer> CustomerList;
-    MyStack <std::string> Stack;
+    MyStack <std::string> *Stack;
 
 public:
 
-    VehicleRental(const VehicleRental&) {};
-    static VehicleRental& getSingleton()
-    {
-        static VehicleRental singleton;
-        return singleton;
-    }
-
-    VehicleRental(){};
-    //     std::vector <Car> CarList = new std::vector <Car>();
-    //     std::vector <Truck> TruckList = new std::vector <Truck>();
-    //     std::vector <Customer> CustomerList = new std::vector <Customer>();
-
+    // VehicleRental(const VehicleRental&) {};
+    // static VehicleRental& getSingleton()
+    // {
+    //     static VehicleRental singleton;
+    //     return singleton;
     // }
-    // ~VehicleRental() {
-    //     delete CarList;
-    //     delete TruckList;
-    //     delete CustomerList;
-    // };
+
+    VehicleRental(){
+        std::vector <Car> CarList = std::vector <Car>();
+        std::vector <Truck> TruckList = std::vector <Truck>();
+        std::vector <Customer> CustomerList = std::vector <Customer>();
+        Stack = new MyStack <std::string>;
+    };
+    ~VehicleRental() {
+        //delete CarList;
+        //delete TruckList;
+        //delete CustomerList;
+        delete Stack;
+
+    };
 
     void Menu();
     void menu_customer(int);

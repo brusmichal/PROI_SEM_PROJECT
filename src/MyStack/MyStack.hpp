@@ -1,6 +1,7 @@
 #ifndef MYSTACK_H
 #define MYSTACK_H
 #include <iostream>
+#include <string>
 
 template <typename T>
 class MyStack{
@@ -18,4 +19,5 @@ public:
     //metody pomocnicze
     bool IsEmpty();
 };
+
 #endif
