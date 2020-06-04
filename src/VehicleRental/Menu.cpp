@@ -48,7 +48,8 @@ Customer enter_customer()
 void VehicleRental::menu_customer(int numer)
 {
     long long pesel;
-    int ile, wybor, end;
+    int ile, wybor, end, a;
+    bool ifDelete = 0;
     using std::cout;
     using std::cin;
     using std::endl;
@@ -56,7 +57,7 @@ void VehicleRental::menu_customer(int numer)
     while (x > 0 && x < 9) {
         system("cls");
         cout << CustomerList[numer] << endl;
-        cout << "Co chcesz zrobic: \n1.Wypozycz pojazd  \n2.Oplac \n3.Zwroc pojazd\n0.Wroc\n";
+        cout << "Co chcesz zrobic: \n1.Wypozycz pojazd  \n2.Oplac \n3.Zwroc pojazd\n4.Usun klienta\n0.Wroc\n";
         cout << "Wybor: ";
         std::cin >> x;
         system("cls");
@@ -69,8 +70,8 @@ void VehicleRental::menu_customer(int numer)
                 if (!CarList[i].isRent) cout << i << " " << CarList[i] << endl;
                 end = i;
             }
-            for (int i = 0; i < TruckList.size(); ++i) 
-                if (!TruckList[i].isRent) cout << end+i+1 << " " << TruckList[i] << endl;
+            for (int i = 0; i < TruckList.size(); ++i)
+                if (!TruckList[i].isRent) cout << end + i + 1 << " " << TruckList[i] << endl;
             cout << "Ktory pojazd wypozyczyc? "; cin >> wybor;
             if (wybor > end) Rent(TruckList[wybor - (end + 1)], CustomerList[numer]);
             else Rent(CarList[wybor], CustomerList[numer]);
@@ -81,19 +82,41 @@ void VehicleRental::menu_customer(int numer)
             CustomerList[numer].pay(ile);
             break;
         case 3:
-            cout << CustomerList[numer] << endl;
-            Return(CustomerList[numer]);
+            if (CustomerList[numer].rented_vehicle.numberplate == "BS00000") {
+                cout << CustomerList[numer] << endl;
+                Return(CustomerList[numer]);
+            }
+            break;
+        case 4:
+            cout << "Czy na pewno chcesz usunac klienta?" << endl;
+            cout << "0 - NIE" << endl;
+            cout << "1 - TAK" << endl;
+            cin >> a;
+            switch (a) {
+            case 0:
+                break;
+            case 1:
+                ifDelete = 1;
+                x = 0;
+                break;
+            }
+            break;
         case 0:
             break;
-
         }
-
+    }
+    if (ifDelete) {
+        if (CustomerList[numer].rented_vehicle.numberplate != "BS00000") Return(CustomerList[numer]);
+        Delete(CustomerList[numer]);
+        cout << "Klient zostal usuniety" << endl;
+        system("pause");
     }
 }
 /*-----------------------------------------------------------------------------------------*/
 void VehicleRental::menu_vehicle(int numer, bool isTruck)
 {
-    int ile, wybor;
+    int ile, wybor, a;
+    bool ifDelete = 0;
     using std::cout;
     using std::cin;
     using std::endl;
@@ -102,7 +125,7 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
         system("cls");
         if (isTruck) cout << TruckList[numer] << endl;
         else cout << CarList[numer] << endl;
-        cout << "Co chcesz zrobic: \n1.Wypozycz pojazd  \n2.Napraw \n0.Wroc\n";
+        cout << "Co chcesz zrobic: \n1.Wypozycz pojazd  \n2.Napraw \n3.Usun z wypozyczalni \n0.Wroc\n";
         cout << "Wybor: ";
         std::cin >> x;
         system("cls");
@@ -115,16 +138,51 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
             cout << "Kto chce wypozyczyc wypozyczyc? "; cin >> wybor;
             if (isTruck) Rent(TruckList[numer], CustomerList[wybor]);
             else Rent(CarList[numer], CustomerList[wybor]);
+            system("pause");
             break;
         case 2:
             if (isTruck) TruckList[numer].Repair();
             else CarList[numer].Repair();
+            system("pause");
+            break;
+        case 3:
+            bool isRent;
+            if (isTruck) isRent = TruckList[numer].isRent;
+            else isRent = CarList[numer].isRent;
+            if (isRent) {
+                cout << "Nie mozna usunac wypozyczonego pojazdu!" << endl;
+                system("pause");
+            }
+            else {
+                cout << "Czy na pewno chcesz usunac pojazd?" << endl;
+                cout << "0 - NIE" << endl;
+                cout << "1 - TAK" << endl;
+                cin >> a;
+                switch (a) {
+                case 0:
+                    break;
+                case 1:
+                    ifDelete = 1;
+                    x = 0;
+                    break;
+                }
+            }
             break;
         case 0:
             break;
 
         }
 
+    }
+    if (ifDelete && isTruck) {
+        Delete(TruckList[numer]);
+        cout << "Pojazd zostal usuniety" << endl;
+        system("pause");
+    }
+    if (ifDelete && !isTruck) {
+        Delete(CarList[numer]);
+        cout << "Pojazd zostal usuniety" << endl;
+        system("pause");
     }
 }
 /*------------------------------------------------------------------------------------------------*/
@@ -138,6 +196,7 @@ void VehicleRental::Menu()
     using std::endl;
     int x = 8;
     LoadData();
+    system("pause");
     while (x != 0) {
         int numer = -1;
         system("cls");
@@ -167,7 +226,10 @@ void VehicleRental::Menu()
                     break;
                 }
             if (numer >= 0) menu_customer(numer);
-            else cout << "Brak klienta o danym peselu" << endl;
+            else {
+                cout << "Brak klienta o danym peselu" << endl;
+                system("pause");
+            }
             break;
         case 5:
             cout << "Podaj nr rejestracyjny "; cin >> nr;
@@ -184,9 +246,11 @@ void VehicleRental::Menu()
                     numer = i;
                     break;
                 }
-            if (numer >= 0) menu_vehicle(numer,isTruck);
-            else
+            if (numer >= 0) menu_vehicle(numer, isTruck);
+            else {
                 cout << "Brak pojazdu o danym nr rejestracyjnym" << endl;
+                system("pause");
+            }
             break;
         case 0:
             break;

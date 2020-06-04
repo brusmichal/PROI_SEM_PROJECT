@@ -3,8 +3,10 @@
     "",
     "\\src",
     "\\src\\Customer",
+    "\\src\\MyStack",
+    "\\src\\Vehicle",
     "\\src\\VehicleRental"
   ],
-  "SelectedNode": "\\src\\Customer\\Customer.cpp",
+  "SelectedNode": "\\src\\VehicleRental\\VehicleRental.cpp",
   "PreviewInSolutionExplorer": false
 }

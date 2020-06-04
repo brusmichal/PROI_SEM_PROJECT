@@ -34,7 +34,7 @@ Customer::Customer() {
 void Customer::rent_vehicle(const Vehicle car)
 {
 
-	if (Customer::rented_vehicle.name == "")
+	if (Customer::rented_vehicle.numberplate == "BS00000")
 	{
 		Customer::rented_vehicle = car;
 		Customer::debt += car.costOfRenting;
@@ -64,7 +64,7 @@ void Customer::show_history()
 {
 	std::cout << "Historia wypożyczeń:" << std::endl;
 	for (int i = 0; i < Customer::history.size(); ++i)
-		std::cout << Customer::history[i]<<std::endl;
+		std::cout << Customer::history[i] << std::endl;
 }
 
 char Customer::show_driving_type()
@@ -83,8 +83,8 @@ std::ostream& operator<< (std::ostream& os, Customer& klient)
 {
 	std::string zwroc = klient.name + " " + klient.surname + " Pesel: " + std::to_string(klient.pesel)
 		+ " Zaleglosc: " + std::to_string(klient.debt) + " Wypozyczone: ";
-	if (klient.rented_vehicle == Vehicle())
+	if (klient.rented_vehicle.numberplate == "BS00000")
 		return os << zwroc << " brak" << std::endl;
 	else
-		return os << zwroc << "Tak" << std::endl;
+		return os << zwroc << klient.rented_vehicle.numberplate << std::endl;
 }
