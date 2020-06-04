@@ -32,11 +32,11 @@ Customer::Customer() {
 void Customer::rent_vehicle(const Vehicle car)
 {
 
-	if (Customer::rented_vehicle.name == "")
+	if (rented_vehicle.name == "")
 	{
-		Customer::rented_vehicle = car;
-		Customer::debt += car.costOfRenting;
-		Customer::history.push_back(Customer::rented_vehicle);
+		rented_vehicle = car;
+		debt += car.costOfRenting;
+		history.push_back(rented_vehicle);
 	}
 	else
 	{
@@ -70,6 +70,10 @@ char Customer::show_driving_type()
 	return driving_license_type;
 }
 
+bool Customer::operator==(const Customer& cust)
+{
+	return pesel == cust.pesel;
+}
 
 std::ostream& operator<< (std::ostream& os, Customer& klient)
 {
