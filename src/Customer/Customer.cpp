@@ -83,8 +83,8 @@ std::ostream& operator<< (std::ostream& os, Customer& klient)
 {
 	std::string zwroc = klient.name + " " + klient.surname + " Pesel: " + std::to_string(klient.pesel)
 		+ " Zaleglosc: " + std::to_string(klient.debt) + " Wypozyczone: ";
-	if (!klient.rented_vehicle.canRent())
-		return os << zwroc << "Tak" << std::endl;
-	else
+	if (klient.rented_vehicle == Vehicle())
 		return os << zwroc << " brak" << std::endl;
+	else
+		return os << zwroc << "Tak" << std::endl;
 }
