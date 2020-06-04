@@ -7,6 +7,7 @@
 #include <iostream>
 #include "../Vehicle/Vehicle.hpp"
 #include "../Customer/Customer.hpp"
+#include "../MyStack/MyStack.hpp"
 
 
 class VehicleRental {
@@ -14,9 +15,18 @@ public:
     std::vector <Car> CarList;
     std::vector <Truck> TruckList;
     std::vector <Customer> CustomerList;
+    MyStack <std::string> Stack;
 
 public:
-    // VehicleRental() {
+
+    VehicleRental(const VehicleRental&) {};
+    static VehicleRental& getSingleton()
+    {
+        static VehicleRental singleton;
+        return singleton;
+    }
+
+    VehicleRental(){};
     //     std::vector <Car> CarList = new std::vector <Car>();
     //     std::vector <Truck> TruckList = new std::vector <Truck>();
     //     std::vector <Customer> CustomerList = new std::vector <Customer>();
@@ -45,9 +55,8 @@ public:
     template <typename T>
     void Delete(T& instance);
 
-    void ShowCarList(/*enum:all, free, taken, car, truck"*/);
-    
-    void ShowCustomerList(/*enum: all, withdebt */);
+    //void ShowVehicleList(/*enum:all, free, taken, car, truck"*/);
+    //void ShowCustomerList(/*enum: all, withdebt */);
 
 
 
