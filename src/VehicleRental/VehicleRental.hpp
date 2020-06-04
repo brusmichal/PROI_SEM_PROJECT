@@ -45,8 +45,9 @@ public:
     template <typename T>
     void Delete(T& instance);
 
-    // void ShowVehicleList(/*enum:all, free, taken, car, truck"*/);
-    // void ShowCustomerList(/*enum: all, withdebt */);
+    void ShowCarList(/*enum:all, free, taken, car, truck"*/);
+    
+    void ShowCustomerList(/*enum: all, withdebt */);
 
 
 

@@ -243,5 +243,10 @@ void ShowInfo <Customer> (Customer& customer){
 
 template <>
 void ShowInfo <Car> (Car& vehicle){
-    //std::cout << vehicle << " Liczba miejsc: " <<  << std::endl;
+    std::cout << vehicle << std::endl;
+};
+
+template <>
+void ShowInfo <Truck> (Truck& vehicle){
+    std::cout << vehicle << std::endl;
 };
