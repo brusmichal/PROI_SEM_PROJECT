@@ -1,6 +1,6 @@
 #include "../Customer/Customer.hpp"
 
-Customer::Customer(const std::string str1, const std::string str2, const long long pes, const char type, Vehicle car= Vehicle(), int deb=0)
+Customer::Customer(const std::string str1, const std::string str2, const long long pes, const char type, Vehicle car = Vehicle("", 0, "BS00000", 0), int deb = 0)
 {
 	name = str1;
 	surname = str2;
@@ -16,18 +16,20 @@ Customer::Customer(const std::string str1, const std::string str2, const long lo
 	surname = str2;
 	pesel = pes;
 	driving_license_type = type;
-	rented_vehicle = Vehicle();
+	rented_vehicle = Vehicle("", 0, "BS00000", 0);
 	debt = 0;
 }
 
-Customer::Customer() {
-	name = "";
-	surname = "";
-	pesel = 0;
-	driving_license_type = 'B';
-	rented_vehicle = Vehicle();
-	debt = 0;
-}
+
+
+// Customer::Customer() {
+// 	name = "";
+// 	surname = "";
+// 	pesel = 0;
+// 	driving_license_type = 'B';
+// 	rented_vehicle = Vehicle();
+// 	debt = 0;
+// }
 
 void Customer::rent_vehicle(const Vehicle car)
 {
