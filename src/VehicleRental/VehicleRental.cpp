@@ -108,9 +108,15 @@ void VehicleRental::Rent<Car>(Car& vehicle, Customer& Customer)
 {
     try
     {
-        vehicle.Rent();
-        vehicle.ReduceCondition();
-        Customer.rent_vehicle(vehicle);
+        if (vehicle.canRent()) {
+            vehicle.Rent();
+            vehicle.ReduceCondition();
+            Customer.rent_vehicle(vehicle);
+        }
+        else {
+            std::cout << "Nie mozna teraz wypozyczyc auta!" << std::endl;
+            system("pause");
+        }
     }
     catch (std::string exnum)
     {
@@ -122,15 +128,18 @@ void VehicleRental::Rent<Truck>(Truck& vehicle, Customer& Customer)
 {
     try
     {
-        if (Customer.driving_license_type == 'C') {
-            vehicle.Rent();
-            vehicle.ReduceCondition();
-            Customer.rent_vehicle(vehicle);
-            std::cout << "Pojazd wyppozyczony" << std::endl;
-        }
-        else
-        {
-            std::cout << "Zla kategoria prawojazd" << std::endl;
+        if (vehicle.canRent()) {
+            if (Customer.driving_license_type == 'C') {
+                vehicle.Rent();
+                vehicle.ReduceCondition();
+                Customer.rent_vehicle(vehicle);
+                std::cout << "Pojazd wyppozyczony" << std::endl;
+            }
+            else
+            {
+                std::cout << "Zla kategoria prawojazd" << std::endl;
+                system("pause");
+            }
         }
     }
     catch (std::string exnum)
@@ -203,11 +212,11 @@ void VehicleRental::LoadData() {
     }
     in.close();
     in.open("Customers.txt");
-    Car autko1;
-    Truck autko2;
     bool isCar = 0;
     bool isTruck = 1;
     while (in >> name >> c >> pesel >> drive >> vehi >> b) {
+        Car autko1;
+        Truck autko2;
         if (vehi != "BS00000") {
             isTruck = 1;
             for (int j = 0; j < CarList.size(); ++j) {
