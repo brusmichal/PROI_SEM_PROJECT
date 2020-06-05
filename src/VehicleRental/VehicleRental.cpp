@@ -141,6 +141,10 @@ void VehicleRental::Rent<Truck>(Truck& vehicle, Customer& Customer)
                 system("pause");
             }
         }
+        else {
+            std::cout << "Nie mozna teraz wypozyczyc auta!" << std::endl;
+            system("pause");
+        }
     }
     catch (std::string exnum)
     {
