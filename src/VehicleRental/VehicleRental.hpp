@@ -47,8 +47,11 @@ public:
     void menu_vehicle(int, bool);
     void LoadData();
     void ExportData();
+    void ShowOperationsHistory();
 
-    void Rent(Vehicle& vehicle, Customer& Customer);
+    template <typename T>
+    void Rent(Vehicle& T, Customer& Customer);
+
     void Payment(Customer& customer, int money);
     void Return(Customer& customer);
 
@@ -66,7 +69,7 @@ public:
 
 
 template <typename T>
-friend void ShowInfo(T& instance);
+friend void ShowInfo(T instance);
 
 };
 #endif

@@ -97,11 +97,11 @@ void VehicleRental::Delete <Customer>(Customer& customer) {
 };
 
 //---------------------------------------------------------------
-template<typename T>
+template <typename T>
 void VehicleRental::Rent(T& vehicle, Customer& Customer)
 {
     std::cout << "Blad" << endl;
-}
+};
 
 template<>
 void VehicleRental::Rent<Car>(Car& vehicle, Customer& Customer)
@@ -116,7 +116,7 @@ void VehicleRental::Rent<Car>(Car& vehicle, Customer& Customer)
     {
         std::cout << "Wyjatek" << exnum << std::endl;
     }
-}
+};
 template<>
 void VehicleRental::Rent<Truck>(Truck& vehicle, Customer& Customer)
 {
@@ -137,7 +137,7 @@ void VehicleRental::Rent<Truck>(Truck& vehicle, Customer& Customer)
     {
         std::cout << "Wyjatek" << exnum << std::endl;
     }
-}
+};
 
 void VehicleRental::Payment(Customer& customer, int money) {
     try
@@ -264,20 +264,20 @@ void VehicleRental::ExportData() {
 }
 
 template <typename T>
-void ShowInfo(T& instance) {};
+void ShowInfo(T instance) {};
 
 template <>
-void ShowInfo <Customer>(Customer& customer) {
+void ShowInfo <Customer>(Customer customer) {
     std::cout << customer << std::endl;
 };
 
 template <>
-void ShowInfo <Car>(Car& vehicle) {
+void ShowInfo <Car>(Car vehicle) {
     std::cout << vehicle << std::endl;
 };
 
 template <>
-void ShowInfo <Truck>(Truck& vehicle) {
+void ShowInfo <Truck>(Truck vehicle) {
     std::cout << vehicle << std::endl;
 };
 
@@ -291,7 +291,7 @@ void VehicleRental::ShowVehicleList(VehicleTypes type_v) {
         };
     }
 
-    else if (type_v == free) {
+    else if (type_v == free_v) {
         for (int i = 0; i < CarList.size(); i++)
             if (!CarList[i].isRent)
                 ShowInfo(CarList[i]);
@@ -317,4 +317,8 @@ void VehicleRental::ShowCustomerList(CustomerTypes type_c) {
         for (int i = 0; i < CustomerList.size(); i++)
             if (CustomerList[i].debt != 0)
                 ShowInfo(CustomerList[i]);
+}
+
+void VehicleRental :: ShowOperationsHistory(){
+    Stack->Read();
 }
