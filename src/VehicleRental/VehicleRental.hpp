@@ -50,7 +50,7 @@ public:
     void ShowOperationsHistory();
 
     template <typename T>
-    void Rent(Vehicle& T, Customer& Customer);
+    void Rent(T& Vehicle, Customer& Customer);
 
     void Payment(Customer& customer, int money);
     void Return(Customer& customer);
