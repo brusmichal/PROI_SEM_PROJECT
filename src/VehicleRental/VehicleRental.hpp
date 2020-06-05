@@ -48,6 +48,8 @@ public:
     void LoadData();
     void ExportData();
 
+
+    template <typename T>
     void Rent(Vehicle& vehicle, Customer& Customer);
     void Payment(Customer& customer, int money);
     void Return(Customer& customer);
