@@ -5,9 +5,10 @@
     "\\src\\Customer",
     "\\src\\IO_functions",
     "\\src\\MyStack",
+    "\\src\\Tests",
     "\\src\\Vehicle",
     "\\src\\VehicleRental"
   ],
-  "SelectedNode": "\\src\\VehicleRental\\VehicleRental.cpp",
+  "SelectedNode": "\\src\\Customer\\Customer.cpp",
   "PreviewInSolutionExplorer": false
 }
