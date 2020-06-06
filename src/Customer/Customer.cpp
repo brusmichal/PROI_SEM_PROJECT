@@ -8,6 +8,7 @@ Customer::Customer(const std::string str1, const std::string str2, const long lo
 	driving_license_type = type;
 	rented_vehicle = car;
 	debt = deb;
+	
 }
 
 Customer::Customer(const std::string str1, const std::string str2, const long long pes, const char type)
@@ -39,6 +40,7 @@ void Customer::rent_vehicle(const Vehicle car)
 		Customer::rented_vehicle = car;
 		Customer::debt += car.costOfRenting;
 		Customer::history.push_back(Customer::rented_vehicle);
+		VehicleRental::
 	}
 	else
 	{

@@ -328,7 +328,7 @@ void VehicleRental::ShowCustomerList(CustomerTypes type_c) {
             ShowInfo(CustomerList[i]);
     else
         for (int i = 0; i < CustomerList.size(); i++)
-            if (CustomerList[i].debt != 0)
+            if (CustomerList[i].debt > 0)
                 ShowInfo(CustomerList[i]);
 }
 

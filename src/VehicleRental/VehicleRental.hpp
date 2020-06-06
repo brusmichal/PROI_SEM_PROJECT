@@ -65,6 +65,9 @@ public:
     void ShowVehicleList(VehicleTypes type_v);
     void ShowCustomerList(CustomerTypes type_c);
 
+    friend class Vehicle;
+	friend class Customer;
+
 
 
 
