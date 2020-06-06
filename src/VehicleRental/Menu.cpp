@@ -1,14 +1,6 @@
 #include "../VehicleRental/VehicleRental.hpp"
 #include "../IO_functions/IO_functions.hpp"
 
-void pause() {
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::string dummy;
-    std::cout << "Press any key to continue . . .";
-    std::getline(std::cin, dummy);
-}
-
 Car enter_car()
 {
     std::string name, drugi;
