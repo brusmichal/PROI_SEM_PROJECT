@@ -1,5 +1,5 @@
-#ifndef IO_FUNCTIONS_HPP
-#define IO_FUNCTIONS_HPP
+#ifndef IO_FUNCTIONS_H
+#define IO_FUNCTIONS_H
 
 void pause(){};
 void clear(){};
