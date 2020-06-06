@@ -34,6 +34,16 @@ public:
 	friend std::ostream& operator<< (std::ostream& os, Customer& klient);
 	friend class Customer;
 	friend class VehicleRental;
+	
+	friend void TestKonstruktorVehicle();
+	friend void TestKonstruktorCar();
+	friend void TestcanRent();
+	friend void TestRent();
+	friend void TestReturn();
+	friend void TestReduceCondition();
+	friend void TestRepair();
+	friend void TestRentVR();
+	friend void TestReturnVR();
 };
 
 class Car :public Vehicle {
