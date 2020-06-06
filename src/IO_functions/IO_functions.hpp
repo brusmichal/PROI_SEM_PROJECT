@@ -1,6 +1,7 @@
 #ifndef IO_FUNCTIONS_H
 #define IO_FUNCTIONS_H
-
+#include <iostream>
+#include <limits>
 
 void pause() {
     std::cin.clear();
