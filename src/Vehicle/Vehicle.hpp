@@ -6,9 +6,8 @@ class Customer;
 
 
 class Vehicle{
-public:
-	std::string numberplate;
 protected:
+	std::string numberplate;
 	std::string name;
 	int dateProduction;
 	int costOfRenting;
