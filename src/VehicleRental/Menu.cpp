@@ -1,4 +1,5 @@
-#include "VehicleRental.hpp"
+#include "../VehicleRental/VehicleRental.hpp"
+#include "../IO_functions/IO_functions.hpp"
 
 void pause() {
     std::cin.clear();
