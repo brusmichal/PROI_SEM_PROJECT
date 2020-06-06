@@ -41,7 +41,7 @@ void MyStack<T>::Pop(){
 template <typename T>
 
  void MyStack<T>::Read(){
-     for(int i = stackSize-1; i > -1; i--){}
+     for(int i = stackSize-1; i > -1; i--){
          std::cout << i+1 << ") " << myStack[i] << std::endl;
          Pop();
     };  
