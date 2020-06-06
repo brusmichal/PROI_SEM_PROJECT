@@ -11,8 +11,6 @@
 #include "../VehicleRental/Enum.hpp"
 #include "../IO_functions/IO_functions.hpp"
 
-
-
 class VehicleRental {
 public:
     std::vector <Car> CarList;

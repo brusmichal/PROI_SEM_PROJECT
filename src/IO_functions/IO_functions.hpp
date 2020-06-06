@@ -3,7 +3,7 @@
 #include <iostream>
 #include <limits>
 
-void pause() {
+static void pause() {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::string dummy;
@@ -11,7 +11,7 @@ void pause() {
     std::getline(std::cin, dummy);
 }
 
-void clear(){
+static void clear(){
     #if defined _WIN32
         system("cls");
     #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
