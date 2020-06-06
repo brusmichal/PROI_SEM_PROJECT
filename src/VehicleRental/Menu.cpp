@@ -14,7 +14,7 @@ Car enter_car()
     cout << "Podaj rok produkcji "; cin >> jeden;
     cout << "Podaj nr rejestracyjny "; cin >> drugi;
     cout << "Podaj koszt wypozyczenia "; cin >> dwa;
-    cout << "Podaj liczbe siedzeń "; cin >> trzy;
+    cout << "Podaj liczbe siedzen "; cin >> trzy;
     Car autko(name, jeden, drugi, dwa, trzy);
     return autko;
 }
@@ -275,7 +275,7 @@ void VehicleRental::Menu()
         clear();
         int numer = -1;
         cout<<endl;
-        cout << "Wypożyczalnia pojazdów.\n" "Witaj co chcesz zrobic:\n\n1.Dodaj pojazd osobowy \n2.Dodaj pojazd ciezarowy \n3.Dodaj klienta\n4.Panel klienta\n5.Panel samochodu\n6.Pokaz\n7.Historia Operacji\n0.wyjdz\n";
+        cout << "Wypozyczalnia pojazdow.\n" "Witaj co chcesz zrobic:\n\n1.Dodaj pojazd osobowy \n2.Dodaj pojazd ciezarowy \n3.Dodaj klienta\n4.Panel klienta\n5.Panel samochodu\n6.Pokaz\n7.Historia Operacji\n0.wyjdz\n";
         cout<<endl;
         cout << "Wybor: ";
         std::cin >> x; if (!cin) { cout << "To nie cyfra"; } //sposob sprawdzania czy wpisanej pozycji
