@@ -18,9 +18,9 @@ template <typename T>
 
 void MyStack<T>::Push(const T& instance){
     T* newStack;
-    newStack = new T[];
+    newStack = new T[stackSize+1];
     for(int i=0; i< stackSize; i++){
-        newStack[i] = myStack[i];S
+        newStack[i] = myStack[i];
     };
     newStack[stackSize++] = instance;
 
@@ -36,7 +36,7 @@ void MyStack<T>::Pop(){
     if(IsEmpty())
         throw "Cannot pop nonexistent element from the stack";
 
-    delete myStack[--stackSize];
+    stackSize--;
 
 };
 
