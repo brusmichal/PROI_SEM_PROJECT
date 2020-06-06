@@ -86,20 +86,21 @@ void VehicleRental::Delete(T& instance) {};
 
 template <>
 void VehicleRental::Delete <Truck>(Truck& vehicle) {
-    TruckList.erase(Find(vehicle));
     Stack.Push("Usunięto ciężarówkę" + vehicle.numberplate + "z listy.");
+    TruckList.erase(Find(vehicle));
+    
 };
 
 template <>
 void VehicleRental::Delete <Car>(Car& vehicle) {
-    CarList.erase(Find(vehicle));
     Stack.Push("Usunięto samochód osobowy" + vehicle.numberplate + "z listy.");
+    CarList.erase(Find(vehicle));
 };
 
 template <>
 void VehicleRental::Delete <Customer>(Customer& customer) {
-    CustomerList.erase(Find(customer));
     Stack.Push("Usunięto klienta" + std::to_string(customer.pesel) + "z listy.");
+    CustomerList.erase(Find(customer));
 };
 
 //---------------------------------------------------------------

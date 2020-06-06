@@ -18,10 +18,12 @@ template <typename T>
 
 void MyStack<T>::Push(const T& instance){
     T* newStack;
+    newStack = new T[];
     for(int i=0; i< stackSize; i++){
-        newStack[i] = myStack[i];
+        newStack[i] = myStack[i];S
     };
     newStack[stackSize++] = instance;
+
     delete[] myStack;
     myStack = newStack;
 
