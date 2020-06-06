@@ -322,11 +322,22 @@ void VehicleRental::ShowVehicleList(VehicleTypes type_v) {
         for (int i = 0; i < TruckList.size(); i++)
             if (!TruckList[i].isRent)
                 ShowInfo(TruckList[i]);
+    }
+    
+    else if (type_v == rented) {
+        for (int i = 0; i < CarList.size(); i++)
+            if (CarList[i].isRent)
+                ShowInfo(CarList[i]);
+        for (int i = 0; i < TruckList.size(); i++)
+            if (TruckList[i].isRent)
+                ShowInfo(TruckList[i]);
 
     }
+    
     else if (type_v == car_t)
         for (int i = 0; i < CarList.size(); i++)
             ShowInfo(CarList[i]);
+            
     else
         for (int i = 0; i < TruckList.size(); i++)
             ShowInfo(TruckList[i]);

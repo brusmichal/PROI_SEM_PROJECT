@@ -194,6 +194,78 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
     }
 }
 /*------------------------------------------------------------------------------------------------*/
+void VehicleRental::menu_show()
+{
+    using std::cout;
+    using std::cin;
+    using std::endl;
+    int x = 1;
+    while (x > 0 && x < 3) {
+        system("cls");
+        cout << "Co pokazac: \n1.Lista klientow  \n2.Lista pojazdow \n0.Wroc\n";
+        cout << "Wybor: ";
+        std::cin >> x;
+        switch (x)
+        {
+        case 1:
+            int a;
+            CustomerTypes type_c;
+            cout << "Klienci: \n1.Wszyscy  \n2.Zadluzeni \n0.Wroc\n";
+            cout << "Wybor: ";
+            std::cin >> a;
+            system("cls");
+            switch (a) {
+            case 1:
+                type_c = all_c;
+                cout << "Lista wszytskich klientow" << endl;
+                break;
+            case 2:
+                type_c = in_debt;
+                cout << "Lista zadluzonych klientow" << endl;
+                break;
+            }
+            ShowCustomerList(type_c);
+            system("pause");
+            break;
+        case 2:
+            int b;
+            VehicleTypes type_v;
+            cout << "Pojazdy: \n1.Wszystkie  \n2.Wolne \n3.Wypozyczone \n4.Samochody Osobowe \n5.Samochody Ciezarowe \n";
+            cout << "Wybor: ";
+            std::cin >> b;
+            system("cls");
+            switch (b) {
+            case 1:
+                type_v = all_v;
+                cout << "Lista wszytskich pojazdow" << endl;
+                break;
+            case 2:
+                type_v = free_v;
+                cout << "Lista wolnych pojazdow" << endl;
+                break;
+            case 3:
+                type_v = rented;
+                cout << "Lista wypozyczonych pojazdow" << endl;
+                break;
+            case 4:
+                type_v = car_t;
+                cout << "Lista samochodow osobowych" << endl;
+                break;
+            case 5:
+                type_v = truck_t;
+                cout << "Lista samochodow ciezarowych" << endl;
+                break;
+            }
+            ShowVehicleList(type_v);
+            system("pause");
+            break;
+        case 0:
+            break;
+        }
+    }
+}
+/*-----------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/
 void VehicleRental::Menu()
 {
     long long pesel;
@@ -208,7 +280,7 @@ void VehicleRental::Menu()
     while (x != 0) {
         int numer = -1;
         system("cls");
-        cout << "Witaj co chcesz zrobic: \n1.Dodaj pojazd osobowy \n2.Dodaj pojazd ciezarowy \n3.Dodaj klienta\n4.Panel klienta\n5.Panel samochodu\n0.wyjdz\n";
+        cout << "Witaj co chcesz zrobic: \n1.Dodaj pojazd osobowy \n2.Dodaj pojazd ciezarowy \n3.Dodaj klienta\n4.Panel klienta\n5.Panel samochodu\n6.Pokaz\n0.wyjdz\n";
         cout << "Wybor: ";
         std::cin >> x; if (!cin) { cout << "To nie cyfra"; } //sposob sprawdzania czy wpisanej pozycji
         system("cls");
@@ -259,6 +331,9 @@ void VehicleRental::Menu()
                 cout << "Brak pojazdu o danym nr rejestracyjnym" << endl;
                 system("pause");
             }
+            break;
+        case 6:
+            menu_show();
             break;
         case 0:
             break;
