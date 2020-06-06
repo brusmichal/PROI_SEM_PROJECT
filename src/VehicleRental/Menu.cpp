@@ -1,5 +1,5 @@
 #include "../VehicleRental/VehicleRental.hpp"
-#include "../IO_functions/IO_functions.hpp"
+
 
 using std::cout;
 using std::cin;
@@ -272,6 +272,7 @@ void VehicleRental::Menu()
     LoadData();
     pause();
     while (x != 0) {
+        clear();
         int numer = -1;
         cout<<endl;
         cout << "Wypożyczalnia pojazdów.\n" "Witaj co chcesz zrobic:\n\n1.Dodaj pojazd osobowy \n2.Dodaj pojazd ciezarowy \n3.Dodaj klienta\n4.Panel klienta\n5.Panel samochodu\n6.Pokaz\n7.Historia Operacji\n0.wyjdz\n";
