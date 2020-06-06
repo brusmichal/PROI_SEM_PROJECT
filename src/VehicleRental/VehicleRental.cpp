@@ -117,7 +117,6 @@ void VehicleRental::Rent<Car>(Car& vehicle, Customer& customer)
     {
         if (vehicle.canRent()) {
             vehicle.Rent();
-            vehicle.ReduceCondition();
             customer.rent_vehicle(vehicle);
             Stack.Push("Klient " + std::to_string(customer.pesel) + " wypozyczył samochod osobowy " + vehicle.numberplate);
         }
@@ -139,7 +138,6 @@ void VehicleRental::Rent<Truck>(Truck& vehicle, Customer& customer)
         if (vehicle.canRent()) {
             if (customer.driving_license_type == 'C') {
                 vehicle.Rent();
-                vehicle.ReduceCondition();
                 customer.rent_vehicle(vehicle);
                 Stack.Push("Klient " + std::to_string(customer.pesel) + " wypozyczył ciezarowke " + vehicle.numberplate);
                 std::cout << "Pojazd wypozyczony" << std::endl;
