@@ -287,8 +287,9 @@ void VehicleRental::Menu()
     pause();
     while (x != 0) {
         int numer = -1;
-        //system("cls");
+        cout<<endl;
         cout << "Wypożyczalnia pojazdów.\n" "Witaj co chcesz zrobic:\n\n1.Dodaj pojazd osobowy \n2.Dodaj pojazd ciezarowy \n3.Dodaj klienta\n4.Panel klienta\n5.Panel samochodu\n6.Pokaz\n7.Historia Operacji\n0.wyjdz\n";
+        cout<<endl;
         cout << "Wybor: ";
         std::cin >> x; if (!cin) { cout << "To nie cyfra"; } //sposob sprawdzania czy wpisanej pozycji
         //system("cls");
@@ -349,7 +350,10 @@ void VehicleRental::Menu()
         case 0:
             break;
         }
-
+    
+    
+    cout<<endl;
     }
+    
     ExportData();
 }
