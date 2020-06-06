@@ -10,19 +10,19 @@ void VehicleRental::Add(T instance) {};
 template <>
 void VehicleRental::Add <Truck>(Truck vehicle) {
     TruckList.push_back(vehicle);
-    Stack.Push("Dodano ciężarówkę" + vehicle.numberplate + "do listy.");
+    Stack.Push("Dodano ciężarówkę " + vehicle.numberplate + " do listy.");
 };
 
 template <>
 void VehicleRental::Add <Car>(Car vehicle) {
     CarList.push_back(vehicle);
-    Stack.Push("Dodano samochód osobowy" + vehicle.numberplate + "do listy.");
+    Stack.Push("Dodano samochód osobowy " + vehicle.numberplate + " do listy.");
 };
 
 template <>
 void VehicleRental::Add <Customer>(Customer customer) {
     CustomerList.push_back(customer);
-    Stack.Push("Dodano klienta" + std::to_string(customer.pesel) + "do listy.");
+    Stack.Push("Dodano klienta " + std::to_string(customer.pesel) + " do listy.");
 };
 
 //-----------------------------------------------------------
@@ -86,20 +86,20 @@ void VehicleRental::Delete(T& instance) {};
 
 template <>
 void VehicleRental::Delete <Truck>(Truck& vehicle) {
-    Stack.Push("Usunięto ciężarówkę" + vehicle.numberplate + "z listy.");
+    Stack.Push("Usunięto ciężarówkę " + vehicle.numberplate + " z listy.");
     TruckList.erase(Find(vehicle));
     
 };
 
 template <>
 void VehicleRental::Delete <Car>(Car& vehicle) {
-    Stack.Push("Usunięto samochód osobowy" + vehicle.numberplate + "z listy.");
+    Stack.Push("Usunięto samochód osobowy " + vehicle.numberplate + " z listy.");
     CarList.erase(Find(vehicle));
 };
 
 template <>
 void VehicleRental::Delete <Customer>(Customer& customer) {
-    Stack.Push("Usunięto klienta" + std::to_string(customer.pesel) + "z listy.");
+    Stack.Push("Usunięto klienta " + std::to_string(customer.pesel) + " z listy.");
     CustomerList.erase(Find(customer));
 };
 
@@ -119,7 +119,7 @@ void VehicleRental::Rent<Car>(Car& vehicle, Customer& customer)
             vehicle.Rent();
             vehicle.ReduceCondition();
             customer.rent_vehicle(vehicle);
-            Stack.Push("Klient" + std::to_string(customer.pesel) + "wypożyczył samochód osobowy" + vehicle.numberplate);
+            Stack.Push("Klient " + std::to_string(customer.pesel) + " wypożyczył samochód osobowy " + vehicle.numberplate);
         }
         else {
             std::cout << "Nie mozna teraz wypozyczyc auta!" << std::endl;
@@ -141,7 +141,7 @@ void VehicleRental::Rent<Truck>(Truck& vehicle, Customer& customer)
                 vehicle.Rent();
                 vehicle.ReduceCondition();
                 customer.rent_vehicle(vehicle);
-                Stack.Push("Klient" + std::to_string(customer.pesel) + "wypożyczył ciężarówkę" + vehicle.numberplate);
+                Stack.Push("Klient " + std::to_string(customer.pesel) + " wypożyczył ciężarówkę " + vehicle.numberplate);
                 std::cout << "Pojazd wypozyczony" << std::endl;
             }
             else
@@ -165,7 +165,7 @@ void VehicleRental::Payment(Customer& customer, int money) {
     try
     {
         customer.pay(money);
-        Stack.Push("Klientowi naliczono" + std::to_string(money) + " zł opłaty za wypożyczenie");
+        Stack.Push("Klientowi naliczono " + std::to_string(money) + " zł opłaty za wypożyczenie.");
     }
     catch (std::string exnum)
     {
@@ -198,7 +198,7 @@ void VehicleRental::Return(Customer& customer)
             }
         }
         customer.return_vehicle();
-        Stack.Push("Klient" + std::to_string(customer.pesel) + "zwrócił pojazd");
+        Stack.Push("Klient " + std::to_string(customer.pesel) + " zwrócił pojazd");
     }
     catch (std::string msg)
     {
