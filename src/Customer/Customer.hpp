@@ -5,6 +5,7 @@
 #include <vector>
 #include <cstdlib>
 #include <string>
+#include <memory>
 #include "../Vehicle/Vehicle.hpp"
 
 

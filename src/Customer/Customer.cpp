@@ -40,7 +40,7 @@ void Customer::rent_vehicle(const Vehicle car)
 		Customer::rented_vehicle = car;
 		Customer::debt += car.costOfRenting;
 		Customer::history.push_back(Customer::rented_vehicle);
-		VehicleRental::
+	
 	}
 	else
 	{

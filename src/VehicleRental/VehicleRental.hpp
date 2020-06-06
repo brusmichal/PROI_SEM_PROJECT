@@ -17,7 +17,7 @@ public:
     std::vector <Car> CarList;
     std::vector <Truck> TruckList;
     std::vector <Customer> CustomerList;
-    MyStack <std::string> *Stack;
+    MyStack <std::string> Stack;
 
 public:
 
@@ -32,15 +32,15 @@ public:
         std::vector <Car> CarList = std::vector <Car>();
         std::vector <Truck> TruckList = std::vector <Truck>();
         std::vector <Customer> CustomerList = std::vector <Customer>();
-        Stack = new MyStack <std::string>;
+        //Stack = new MyStack <std::string>;
     };
-    ~VehicleRental() {
-        //delete CarList;
-        //delete TruckList;
-        //delete CustomerList;
-        delete Stack;
+    // ~VehicleRental() {
+    //     //delete CarList;
+    //     //delete TruckList;
+    //     //delete CustomerList;
+    //     delete Stack;
 
-    };
+    // };
 
     void Menu();
     void menu_customer(int);
@@ -65,9 +65,7 @@ public:
     void ShowVehicleList(VehicleTypes type_v);
     void ShowCustomerList(CustomerTypes type_c);
 
-    friend class Vehicle;
-	friend class Customer;
-
+   
 
 
 
