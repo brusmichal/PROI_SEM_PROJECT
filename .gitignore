@@ -1,2 +1,7 @@
 .vscode/launch.json
 .vscode/tasks.json
+bin/rental
+bin/Cars.txt
+bin/Customers.txt
+bin/Trucks.txt
+bin/rental

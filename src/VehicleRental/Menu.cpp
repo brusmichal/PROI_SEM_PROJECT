@@ -55,12 +55,12 @@ void VehicleRental::menu_customer(int numer)
     using std::endl;
     int x = 8;
     while (x > 0 && x < 9) {
-        system("cls");
+        //system("cls");
         cout << CustomerList[numer] << endl;
         cout << "Co chcesz zrobic: \n1.Wypozycz pojazd  \n2.Oplac \n3.Zwroc pojazd\n4.Usun klienta\n0.Wroc\n";
         cout << "Wybor: ";
         std::cin >> x;
-        system("cls");
+        //system("cls");
         switch (x)
         {
         case 1:
@@ -80,7 +80,7 @@ void VehicleRental::menu_customer(int numer)
             }
             else {
                 cout << "Wpisano numer spoza listy! Prosze takich rzeczy nie robic!" << endl;
-                system("pause");
+                //system("pause");
             }
             break;
         case 2:
@@ -117,7 +117,7 @@ void VehicleRental::menu_customer(int numer)
         if (CustomerList[numer].rented_vehicle.numberplate != "BS00000") Return(CustomerList[numer]);
         Delete(CustomerList[numer]);
         cout << "Klient zostal usuniety" << endl;
-        system("pause");
+        //system("pause");
     }
 }
 /*-----------------------------------------------------------------------------------------*/
@@ -130,13 +130,13 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
     using std::endl;
     int x = 8;
     while (x > 0 && x < 9) {
-        system("cls");
+        //system("cls");
         if (isTruck) cout << TruckList[numer] << endl;
         else cout << CarList[numer] << endl;
         cout << "Co chcesz zrobic: \n1.Wypozycz pojazd  \n2.Napraw \n3.Usun z wypozyczalni \n0.Wroc\n";
         cout << "Wybor: ";
         std::cin >> x;
-        system("cls");
+        //system("cls");
         switch (x)
         {
         case 1:
@@ -146,12 +146,12 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
             cout << "Kto chce wypozyczyc wypozyczyc? "; cin >> wybor;
             if (isTruck) Rent(TruckList[numer], CustomerList[wybor]);
             else Rent(CarList[numer], CustomerList[wybor]);
-            system("pause");
+            //system("pause");
             break;
         case 2:
             if (isTruck) TruckList[numer].Repair();
             else CarList[numer].Repair();
-            system("pause");
+            //system("pause");
             break;
         case 3:
             bool isRent;
@@ -159,7 +159,7 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
             else isRent = CarList[numer].isRent;
             if (isRent) {
                 cout << "Nie mozna usunac wypozyczonego pojazdu!" << endl;
-                system("pause");
+                //system("pause");
             }
             else {
                 cout << "Czy na pewno chcesz usunac pojazd?" << endl;
@@ -185,12 +185,12 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
     if (ifDelete && isTruck) {
         Delete(TruckList[numer]);
         cout << "Pojazd zostal usuniety" << endl;
-        system("pause");
+        //system("pause");
     }
     if (ifDelete && !isTruck) {
         Delete(CarList[numer]);
         cout << "Pojazd zostal usuniety" << endl;
-        system("pause");
+        //system("pause");
     }
 }
 /*------------------------------------------------------------------------------------------------*/
@@ -201,7 +201,7 @@ void VehicleRental::menu_show()
     using std::endl;
     int x = 1;
     while (x > 0 && x < 3) {
-        system("cls");
+        //system("cls");
         cout << "Co pokazac: \n1.Lista klientow  \n2.Lista pojazdow \n0.Wroc\n";
         cout << "Wybor: ";
         std::cin >> x;
@@ -213,7 +213,7 @@ void VehicleRental::menu_show()
             cout << "Klienci: \n1.Wszyscy  \n2.Zadluzeni \n0.Wroc\n";
             cout << "Wybor: ";
             std::cin >> a;
-            system("cls");
+            //system("cls");
             switch (a) {
             case 1:
                 type_c = all_c;
@@ -225,7 +225,7 @@ void VehicleRental::menu_show()
                 break;
             }
             ShowCustomerList(type_c);
-            system("pause");
+            //system("pause");
             break;
         case 2:
             int b;
@@ -233,7 +233,7 @@ void VehicleRental::menu_show()
             cout << "Pojazdy: \n1.Wszystkie  \n2.Wolne \n3.Wypozyczone \n4.Samochody Osobowe \n5.Samochody Ciezarowe \n";
             cout << "Wybor: ";
             std::cin >> b;
-            system("cls");
+            //system("cls");
             switch (b) {
             case 1:
                 type_v = all_v;
@@ -257,7 +257,7 @@ void VehicleRental::menu_show()
                 break;
             }
             ShowVehicleList(type_v);
-            system("pause");
+            //system("pause");
             break;
         case 0:
             break;
@@ -276,14 +276,14 @@ void VehicleRental::Menu()
     using std::endl;
     int x = 8;
     LoadData();
-    system("pause");
+    //system("pause");
     while (x != 0) {
         int numer = -1;
-        system("cls");
-        cout << "Witaj co chcesz zrobic: \n1.Dodaj pojazd osobowy \n2.Dodaj pojazd ciezarowy \n3.Dodaj klienta\n4.Panel klienta\n5.Panel samochodu\n6.Pokaz\n0.wyjdz\n";
+        //system("cls");
+        cout << "Wypożyczalnia pojazdów.\n" "Witaj co chcesz zrobic:\n\n1.Dodaj pojazd osobowy \n2.Dodaj pojazd ciezarowy \n3.Dodaj klienta\n4.Panel klienta\n5.Panel samochodu\n6.Pokaz\n0.wyjdz\n";
         cout << "Wybor: ";
         std::cin >> x; if (!cin) { cout << "To nie cyfra"; } //sposob sprawdzania czy wpisanej pozycji
-        system("cls");
+        //system("cls");
         switch (x)
         {
         case 1:
@@ -308,7 +308,7 @@ void VehicleRental::Menu()
             if (numer >= 0) menu_customer(numer);
             else {
                 cout << "Brak klienta o danym peselu" << endl;
-                system("pause");
+                //system("pause");
             }
             break;
         case 5:
@@ -329,7 +329,7 @@ void VehicleRental::Menu()
             if (numer >= 0) menu_vehicle(numer, isTruck);
             else {
                 cout << "Brak pojazdu o danym nr rejestracyjnym" << endl;
-                system("pause");
+                //system("pause");
             }
             break;
         case 6:

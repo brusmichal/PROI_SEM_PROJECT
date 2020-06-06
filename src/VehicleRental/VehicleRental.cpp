@@ -123,7 +123,7 @@ void VehicleRental::Rent<Car>(Car& vehicle, Customer& customer)
         }
         else {
             std::cout << "Nie mozna teraz wypozyczyc auta!" << std::endl;
-            system("pause");
+            //system("pause");
         }
     }
     catch (std::string exnum)
@@ -147,12 +147,12 @@ void VehicleRental::Rent<Truck>(Truck& vehicle, Customer& customer)
             else
             {
                 std::cout << "Zla kategoria prawojazd" << std::endl;
-                system("pause");
+                //system("pause");
             }
         }
         else {
             std::cout << "Nie mozna teraz wypozyczyc auta!" << std::endl;
-            system("pause");
+            //system("pause");
         }
     }
     catch (std::string exnum)
@@ -310,48 +310,68 @@ void ShowInfo <Truck>(Truck vehicle) {
 void VehicleRental::ShowVehicleList(VehicleTypes type_v) {
     if (type_v == all_v) {
         for (int i = 0; i < CarList.size(); i++) {
+            std::cout<<std::endl;
             ShowInfo(CarList[i]);
+        }
+        for (int i = 0; i < TruckList.size(); i++){
+            std::cout<<std::endl;
             ShowInfo(TruckList[i]);
         };
     }
 
     else if (type_v == free_v) {
         for (int i = 0; i < CarList.size(); i++)
-            if (!CarList[i].isRent)
+            if (!CarList[i].isRent){
+                std::cout<<std::endl;
                 ShowInfo(CarList[i]);
+            }
         for (int i = 0; i < TruckList.size(); i++)
-            if (!TruckList[i].isRent)
+            if (!TruckList[i].isRent){
+                std::cout<<std::endl;
                 ShowInfo(TruckList[i]);
+            }
     }
     
     else if (type_v == rented) {
         for (int i = 0; i < CarList.size(); i++)
-            if (CarList[i].isRent)
+            if (CarList[i].isRent){
+                std::cout<<std::endl;
                 ShowInfo(CarList[i]);
+            }
         for (int i = 0; i < TruckList.size(); i++)
-            if (TruckList[i].isRent)
+            if (TruckList[i].isRent){
+                std::cout<<std::endl;
                 ShowInfo(TruckList[i]);
+            }
 
     }
     
     else if (type_v == car_t)
-        for (int i = 0; i < CarList.size(); i++)
+        for (int i = 0; i < CarList.size(); i++){
+            std::cout<<std::endl;
             ShowInfo(CarList[i]);
+        }
             
     else
-        for (int i = 0; i < TruckList.size(); i++)
+        for (int i = 0; i < TruckList.size(); i++){
+            std::cout<<std::endl;
             ShowInfo(TruckList[i]);
+        }
 }
 
 
 void VehicleRental::ShowCustomerList(CustomerTypes type_c) {
     if (type_c == all_c)
-        for (int i = 0; i < CustomerList.size(); i++)
+        for (int i = 0; i < CustomerList.size(); i++){
+            std::cout<<std::endl;
             ShowInfo(CustomerList[i]);
+        }
     else
         for (int i = 0; i < CustomerList.size(); i++)
-            if (CustomerList[i].debt > 0)
+            if (CustomerList[i].debt > 0){
+                std::cout<<std::endl;
                 ShowInfo(CustomerList[i]);
+            }
 }
 
 void VehicleRental :: ShowOperationsHistory(){
