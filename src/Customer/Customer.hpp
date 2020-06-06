@@ -33,5 +33,9 @@ class Customer{
 		std::ostream& operator<< (std::ostream& os, Customer& cust); //operator wyswietlenia osoby
     friend class Vehicle;
 	friend class VehicleRental;
+	
+	friend void TestRentVR();
+	friend void TestReturnVR(); 
+	friend void TestPaymentVR();
 };
 #endif
