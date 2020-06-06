@@ -3,31 +3,28 @@
 #make || #make test || #make clean
 
 
-CC = g++
-CFLAGS = -c -Wall
-OBJECTS = customer.o io_function.o mystack.o vehicle.o vehiclerental.o main.o
-OBJDIR = ../bin
-VRDIR = ../VehicleRental
-VDIR = ../Vehicle
-MSDIR = ../MyStack
+CXX = g++
+CXXFLAGS = -Wall -c
+BIN := bin
+TARGET := $(BIN)/all
+OBJ = bin/customer.o bin/vehicle.o bin/vehiclerental.o bin/main.o
+
+all : $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CXX) $? -o $@
+bin/main.o: src/VehicleRental/main.cpp  src/VehicleRental/*.hpp
+	$(CXX) $(CXXFLAGS)  $< -o $@
+bin/menu.o 
+bin/customer.o: src/Customer/Customer.cpp src/Customer/Customer.hpp 
+	$(CXX) $(CXXFLAGS)  $< -o $@
+bin/vehicle.o: src/Vehicle/Vehicle.cpp src/Vehicle/Vehicle.hpp
+	$(CXX) $(CXXFLAGS)  $< -o $@
+bin/vehiclerental.o: src/VehicleRental/VehicleRental.cpp src/VehicleRental/Menu.cpp src/VehicleRental/*.hpp src/Tests/*.hpp src/IO_functions/*.hpp src/MyStack/*.hpp
+	$(CXX) $(CXXFLAGS)  $< -o $@
 
 
-rental: $(OBJECTS)
-	$(CC) $(OBJECTS) -o $@
 
-customer.o: customer.cpp customer.hpp
-	$(CC) $(CFLAGS) $?
 
-io_function: IO_functions.hpp
-	$(CC) $(CFLAGS) $?
-
-mystack: ../MyStack/MyStack.hpp ../MyStack/MyStack_impl.hpp
-	$(CC) $(CFLAGS) $?
-
-vehicle.o: ../Vehicle/Vehicle.cpp ../Vehicle/Vehicle.hpp
-	$(CC) $(CFLAGS) $?
-
-vehiclerental.o: ../VehicleRental/Enum.hpp ../VehicleRental/Menu.cpp ../VehicleRental/Test.hpp ../VehicleRental/VehicleRental.cpp ../VehicleRental/Vehicle.hpp
-	$(CC) $(CFLAGS) $?
-main.o: ../VehicleRental/main.cpp
-	$(CC) $(CFLAGS)
+clean:
+	rm -f $(OBJ) $(TARGET)
