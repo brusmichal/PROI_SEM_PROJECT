@@ -1,5 +1,5 @@
 #include "../VehicleRental/VehicleRental.hpp"
-#include "../VehicleRental/Test.hpp"
+#include "../Tests/Test.hpp"
 
 int main(int argc, char* argv[]){
     VehicleRental wypozyczalnia;
