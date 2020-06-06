@@ -136,7 +136,7 @@ void VehicleRental::Rent<Truck>(Truck& vehicle, Customer& customer)
     try
     {
         if (vehicle.canRent()) {
-            if (customer.driving_license_type == 'C') {
+            if (customer.driving_licence_type == 'C') {
                 vehicle.Rent();
                 customer.rent_vehicle(vehicle);
                 Stack.Push("Klient " + std::to_string(customer.pesel) + " wypozyczył ciezarowke " + vehicle.numberplate);

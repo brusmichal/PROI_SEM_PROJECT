@@ -5,10 +5,10 @@ Customer::Customer(const std::string str1, const std::string str2, const long lo
 	name = str1;
 	surname = str2;
 	pesel = pes;
-	driving_license_type = type;
+	driving_licence_type = type;
 	rented_vehicle = car;
 	debt = deb;
-	
+
 }
 
 Customer::Customer(const std::string str1, const std::string str2, const long long pes, const char type)
@@ -16,7 +16,7 @@ Customer::Customer(const std::string str1, const std::string str2, const long lo
 	name = str1;
 	surname = str2;
 	pesel = pes;
-	driving_license_type = type;
+	driving_licence_type = type;
 	rented_vehicle = Vehicle("", 0, "BS00000", 0);
 	debt = 0;
 }
@@ -27,7 +27,7 @@ Customer::Customer() {
 	name = "";
 	surname = "";
 	pesel = 0;
-	driving_license_type = 'B';
+	driving_licence_type = 'B';
 	rented_vehicle = Vehicle();
 	debt = 0;
 }
@@ -39,8 +39,6 @@ void Customer::rent_vehicle(const Vehicle car)
 	{
 		Customer::rented_vehicle = car;
 		Customer::debt += car.costOfRenting;
-		Customer::history.push_back(Customer::rented_vehicle);
-	
 	}
 	else
 	{
@@ -62,16 +60,9 @@ void Customer::pay(const int price)
 	Customer::debt -= price;
 }
 
-void Customer::show_history()
-{
-	std::cout << "Historia wypożyczeń:" << std::endl;
-	for (int i = 0; i < Customer::history.size(); ++i)
-		std::cout << Customer::history[i] << std::endl;
-}
-
 char Customer::show_driving_type()
 {
-	return driving_license_type;
+	return driving_licence_type;
 }
 
 
