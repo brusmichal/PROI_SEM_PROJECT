@@ -100,7 +100,7 @@ void VehicleRental::Delete <Customer>(Customer& customer) {
 template <typename T>
 void VehicleRental::Rent(T& vehicle, Customer& Customer)
 {
-    std::cout << "Blad" << endl;
+    std::cout << "Blad" << std::endl;
 };
 
 template<>
