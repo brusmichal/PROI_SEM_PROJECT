@@ -88,11 +88,7 @@ void VehicleRental::menu_customer(int numer)
             }
             else {
                 cout << "Wpisano numer spoza listy! Prosze takich rzeczy nie robic!" << endl;
-<<<<<<< HEAD
-                //system("pause");
-=======
                 pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
             }
             break;
         case 2:
@@ -129,11 +125,7 @@ void VehicleRental::menu_customer(int numer)
         if (CustomerList[numer].rented_vehicle.numberplate != "BS00000") Return(CustomerList[numer]);
         Delete(CustomerList[numer]);
         cout << "Klient zostal usuniety" << endl;
-<<<<<<< HEAD
-        //system("pause");
-=======
         pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
     }
 }
 /*-----------------------------------------------------------------------------------------*/
@@ -162,20 +154,12 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
             cout << "Kto chce wypozyczyc wypozyczyc? "; cin >> wybor;
             if (isTruck) Rent(TruckList[numer], CustomerList[wybor]);
             else Rent(CarList[numer], CustomerList[wybor]);
-<<<<<<< HEAD
-            //system("pause");
-=======
             pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
             break;
         case 2:
             if (isTruck) TruckList[numer].Repair();
             else CarList[numer].Repair();
-<<<<<<< HEAD
-            //system("pause");
-=======
             pause();;
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
             break;
         case 3:
             bool isRent;
@@ -183,11 +167,7 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
             else isRent = CarList[numer].isRent;
             if (isRent) {
                 cout << "Nie mozna usunac wypozyczonego pojazdu!" << endl;
-<<<<<<< HEAD
-                //system("pause");
-=======
                 pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
             }
             else {
                 cout << "Czy na pewno chcesz usunac pojazd?" << endl;
@@ -213,20 +193,12 @@ void VehicleRental::menu_vehicle(int numer, bool isTruck)
     if (ifDelete && isTruck) {
         Delete(TruckList[numer]);
         cout << "Pojazd zostal usuniety" << endl;
-<<<<<<< HEAD
-        //system("pause");
-=======
         pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
     }
     if (ifDelete && !isTruck) {
         Delete(CarList[numer]);
         cout << "Pojazd zostal usuniety" << endl;
-<<<<<<< HEAD
-        //system("pause");
-=======
         pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
     }
 }
 /*------------------------------------------------------------------------------------------------*/
@@ -261,11 +233,7 @@ void VehicleRental::menu_show()
                 break;
             }
             ShowCustomerList(type_c);
-<<<<<<< HEAD
-            //system("pause");
-=======
             pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
             break;
         case 2:
             int b;
@@ -297,11 +265,7 @@ void VehicleRental::menu_show()
                 break;
             }
             ShowVehicleList(type_v);
-<<<<<<< HEAD
-            //system("pause");
-=======
             pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
             break;
         case 0:
             break;
@@ -320,11 +284,7 @@ void VehicleRental::Menu()
     using std::endl;
     int x = 8;
     LoadData();
-<<<<<<< HEAD
-    //system("pause");
-=======
     pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
     while (x != 0) {
         int numer = -1;
         //system("cls");
@@ -356,11 +316,7 @@ void VehicleRental::Menu()
             if (numer >= 0) menu_customer(numer);
             else {
                 cout << "Brak klienta o danym peselu" << endl;
-<<<<<<< HEAD
-                //system("pause");
-=======
                 pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
             }
             break;
         case 5:
@@ -381,11 +337,7 @@ void VehicleRental::Menu()
             if (numer >= 0) menu_vehicle(numer, isTruck);
             else {
                 cout << "Brak pojazdu o danym nr rejestracyjnym" << endl;
-<<<<<<< HEAD
-                //system("pause");
-=======
                 pause();
->>>>>>> 667951e22f20c930f47b16cdf761848be0ac9e2e
             }
             break;
         case 6:
