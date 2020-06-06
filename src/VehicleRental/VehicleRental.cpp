@@ -123,7 +123,7 @@ void VehicleRental::Rent<Car>(Car& vehicle, Customer& customer)
         }
         else {
             std::cout << "Nie mozna teraz wypozyczyc auta!" << std::endl;
-            //system("pause");
+            pause();
         }
     }
     catch (std::string exnum)
@@ -147,12 +147,12 @@ void VehicleRental::Rent<Truck>(Truck& vehicle, Customer& customer)
             else
             {
                 std::cout << "Zla kategoria prawojazd" << std::endl;
-                //system("pause");
+                pause();
             }
         }
         else {
             std::cout << "Nie mozna teraz wypozyczyc auta!" << std::endl;
-            //system("pause");
+            pause();
         }
     }
     catch (std::string exnum)
@@ -376,4 +376,5 @@ void VehicleRental::ShowCustomerList(CustomerTypes type_c) {
 
 void VehicleRental :: ShowOperationsHistory(){
     Stack.Read();
+    pause();
 }
