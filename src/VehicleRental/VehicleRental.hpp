@@ -45,6 +45,7 @@ public:
     void Menu();
     void menu_customer(int);
     void menu_vehicle(int, bool);
+    void menu_show();
     void LoadData();
     void ExportData();
     void ShowOperationsHistory();
