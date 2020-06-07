@@ -5,9 +5,14 @@ int main(int argc, char* argv[]){
     VehicleRental wypozyczalnia;
     if(argc == 1)
         wypozyczalnia.Menu();
-    else{
-        if(strcmp(argv[1],"test") == 0)
-            std::cout<< "TESTY!!!" << std::endl;
+    
+    if(strcmp(argv[1],"test") == 0){
+         std::cout<< "TESTY!!!" << std::endl;
+         TestCustomer();
+         TestVehicle();
+         TestVehicleRental();
     };
+
+    
     
 }

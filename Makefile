@@ -10,6 +10,7 @@ TARGET := $(BIN)/all
 OBJ = bin/customer.o bin/vehicle.o bin/vehiclerental.o bin/main.o bin/menu.o
 
 all: $(TARGET)
+	$(TARGET)
 
 $(TARGET): $(OBJ)
 	$(CXX) $? -o $@ 
@@ -26,7 +27,7 @@ bin/main.o: src/VehicleRental/main.cpp src/Tests/Test.hpp src/VehicleRental/Vehi
 	$(CXX) $(CXXFLAGS)  $< -o $@
 bin/menu.o: src/VehicleRental/Menu.cpp src/VehicleRental/VehicleRental.hpp
 	$(CXX) $(CXXFLAGS)  $< -o $@
-run: all
-	bin/all test
+test: $(TARGET)
+	$(TARGET) test
 clean:
 	rm -f $(OBJ) $(TARGET)
