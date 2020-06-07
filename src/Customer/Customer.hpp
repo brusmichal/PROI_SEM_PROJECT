@@ -36,5 +36,8 @@ public:
 	friend void Testreturn_vehicle();
 	friend void Testpay();
 	friend void Testshow_driving_type();
+	friend void TestReturnVR();
+	friend void TestPaymentVR();
+	friend void TestRentVR();
 };
 #endif
