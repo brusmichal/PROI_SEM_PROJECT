@@ -279,7 +279,7 @@ void VehicleRental::ExportData() {
     out.open("Customers.txt");
     for (int i = 0; i < CustomerList.size(); ++i) {
         out << CustomerList[i].name << " " << CustomerList[i].surname << " "
-            << CustomerList[i].pesel << " " << CustomerList[i].driving_license_type << " "
+            << CustomerList[i].pesel << " " << CustomerList[i].driving_licence_type << " "
             << CustomerList[i].rented_vehicle.numberplate << " " << CustomerList[i].debt << std::endl;
     }
     out.close();

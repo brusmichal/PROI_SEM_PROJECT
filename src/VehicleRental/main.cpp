@@ -3,11 +3,11 @@
 
 int main(int argc, char* argv[]){
     VehicleRental wypozyczalnia;
-    
     if(argc == 1)
         wypozyczalnia.Menu();
-     if(argv[1] == "-test")
-        "TESTY!!!";
-
+    else{
+        if(strcmp(argv[1],"test") == 0)
+            std::cout<< "TESTY!!!" << std::endl;
+    };
     
 }

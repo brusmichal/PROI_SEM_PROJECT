@@ -26,10 +26,7 @@ bin/main.o: src/VehicleRental/main.cpp src/Tests/Test.hpp src/VehicleRental/Vehi
 	$(CXX) $(CXXFLAGS)  $< -o $@
 bin/menu.o: src/VehicleRental/Menu.cpp src/VehicleRental/VehicleRental.hpp
 	$(CXX) $(CXXFLAGS)  $< -o $@
-
-run:
-	bin/all.o
-	-test
-	
+run: all
+	bin/all test
 clean:
 	rm -f $(OBJ) $(TARGET)
