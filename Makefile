@@ -4,7 +4,7 @@
 
 
 CXX = g++
-CXXFLAGS = -Wall -c
+CXXFLAGS = -Wall -c -valgrind
 BIN := bin
 TARGET := $(BIN)/all
 OBJ = bin/customer.o bin/vehicle.o bin/vehiclerental.o bin/main.o bin/menu.o
