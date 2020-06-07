@@ -228,7 +228,7 @@ void TestRepair() {
 	std::cout << "Metoda Repair() dla isWork=1 DZIALA" << std::endl;
 }
 
-void TestOperatorComparison() {
+void TestOperatorComparisonVehicle() {
 	Car autko1("Polonez", 2000, "BS97979", 100, 5, 0, 0, 0);
 	Car autko2 = autko1;
 	REQUIRE(autko1 == autko2);
@@ -249,6 +249,6 @@ void TestVehicle(){
 	TestReturn();
 	TestReduceCondition();
 	TestRepair();
-	TestOperatorComparison();
+	TestOperatorComparisonVehicle();
 }
 #endif
