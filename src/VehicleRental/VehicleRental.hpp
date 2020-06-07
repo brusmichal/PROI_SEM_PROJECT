@@ -31,15 +31,7 @@ public:
         std::vector <Car> CarList = std::vector <Car>();
         std::vector <Truck> TruckList = std::vector <Truck>();
         std::vector <Customer> CustomerList = std::vector <Customer>();
-        //Stack = new MyStack <std::string>;
     };
-    // ~VehicleRental() {
-    //     //delete CarList;
-    //     //delete TruckList;
-    //     //delete CustomerList;
-    //     delete Stack;
-
-    // };
 
     void Menu();
     void menu_customer(int);
@@ -51,7 +43,6 @@ public:
 
     template <typename T>
     void Rent(T& Vehicle, Customer& Customer);
-
     void Payment(Customer& customer, int money);
     void Return(Customer& customer);
 
@@ -65,12 +56,8 @@ public:
     void ShowVehicleList(VehicleTypes type_v);
     void ShowCustomerList(CustomerTypes type_c);
 
-   
-
-
-
-template <typename T>
-friend void ShowInfo(T instance);
+    template <typename T>
+    friend void ShowInfo(T instance);
 
 };
 #endif
