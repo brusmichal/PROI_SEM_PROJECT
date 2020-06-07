@@ -1,9 +1,8 @@
 # Project
-To run project type:
+To run project type on of these:
 
-* make all
-* make test
-* make valgrind
-* make clean
+* make all --> interaktwyne menu
+* make test --> testy
+* make clean --> czyszczenie 
 
 in terminal
