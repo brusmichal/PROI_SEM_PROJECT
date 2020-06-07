@@ -36,7 +36,6 @@ public:
 	friend class VehicleRental;
 	
 	friend void TestKonstruktorVehicle();
-	friend void TestKonstruktorCar();
 	friend void TestcanRent();
 	friend void TestRent();
 	friend void TestReturn();
@@ -44,6 +43,9 @@ public:
 	friend void TestRepair();
 	friend void TestRentVR();
 	friend void TestReturnVR();
+	friend void TestKonstruktorCustomer();
+	friend void Testrent_vehicle();
+	friend void Testreturn_vehicle();
 };
 
 class Car :public Vehicle {
@@ -60,6 +62,13 @@ public:
 
 	friend class Customer;
 	friend class VehicleRental;
+	
+	friend void TestKonstruktorCar();
+	friend void TestcanRent();
+	friend void TestRent();
+	friend void TestReturn();
+	friend void TestReduceCondition();
+	friend void TestRepair();
 };
 
 class Truck :public Vehicle {
@@ -76,5 +85,12 @@ public:
 
 	friend class Customer;
 	friend class VehicleRental;
+	
+	friend void TestKonstruktorTruck();
+	friend void TestcanRent();
+	friend void TestRent();
+	friend void TestReturn();
+	friend void TestReduceCondition();
+	friend void TestRepair();
 };
 #endif
