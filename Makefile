@@ -30,6 +30,6 @@ bin/menu.o: src/VehicleRental/Menu.cpp src/VehicleRental/VehicleRental.hpp
 test: $(TARGET)
 	$(TARGET) test
 valgrind: $(TARGET)
-	valgrind -leak-check=yes $(TARGET)
+	valgrind --leak-check=yes $(TARGET)
 clean:
 	rm -f $(OBJ) $(TARGET)

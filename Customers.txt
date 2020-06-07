@@ -10,7 +10,6 @@ Krzysztof Jezyna 1234567810 B BS00000 0
 Dariusz Szpakowski 1234567811 B BS00000 0
 Grzegorz Brzeczyszczykiewicz 1234567812 B BS00000 0
 Tomasz Hajto 1234567813 B BS00000 0
-Robert Maklowicz 1235487806 B BS00000 0
 Zdzislaw Przelomiec 1234927807 B BS00000 5
 Piotr Wysocki 1234843208 C BS00000 0
 Edyta Zdancewicz 1237618809 C BS00000 0
