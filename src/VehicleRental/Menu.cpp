@@ -308,7 +308,8 @@ void VehicleRental::Menu()
             }
             break;
         case 5:
-            cout << "Podaj nr rejestracyjny "; nr = enter_number();
+            cout << "Podaj nr rejestracyjny "; 
+            cin>>nr;
             for (int i = 0; i < CarList.size(); ++i)
                 if (CarList[i].numberplate == nr)
                 {
