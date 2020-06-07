@@ -4,7 +4,7 @@
 
 
 CXX = g++
-CXXFLAGS = -Wall -c -valgrind
+CXXFLAGS = -Wall -c
 BIN := bin
 TARGET := $(BIN)/all
 OBJ = bin/customer.o bin/vehicle.o bin/vehiclerental.o bin/main.o bin/menu.o
@@ -29,5 +29,7 @@ bin/menu.o: src/VehicleRental/Menu.cpp src/VehicleRental/VehicleRental.hpp
 	$(CXX) $(CXXFLAGS)  $< -o $@
 test: $(TARGET)
 	$(TARGET) test
+valgrind: $(TARGET)
+	valgrind -leak-check=yes $(TARGET)
 clean:
 	rm -f $(OBJ) $(TARGET)
